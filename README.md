@@ -12,4 +12,18 @@
 
 [Ian Rasch](https://github.com/genocidalist)
 
+## Tools
 
+**Backend:** Java
+
+**Frontend:** PHP
+
+**Database:** AWS SQL db
+
+**Diagrams:** Drawio
+
+**Version Control:** Github
+
+**Story/Task Management:** Github Projects
+
+**Continuous Integration:** Github Actions
