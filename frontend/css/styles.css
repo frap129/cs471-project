@@ -1,0 +1,142 @@
+@font-face {
+	font-family:"FreeMono";
+	src:url("FreeMono/FreeMono.eot?") format("eot"),url("FreeMono/FreeMono.woff") format("woff"),url("FreeMono/FreeMono.ttf") format("truetype"),url("FreeMono/FreeMono.svg#FreeMono") format("svg");
+	font-weight:normal;
+	font-style:normal;
+	}
+h1{
+	font-family: "Chinyen";
+	text-align:center;
+	position: center;
+}
+
+p{
+	font-family: "FreeMono";
+	font-weight: bold;
+	max-width: 85%;
+	text-align: left;
+	margin-left:auto; 
+    margin-right:auto;
+}
+.responsive {
+  max-width: 100%;
+  height: auto;
+}
+.side-crop { 
+	max-height: 325px; 
+	overflow: hidden; 
+	border-radius: 4px;
+}
+div{
+	position: center;
+	text-align: center;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  font-family: "FreeMono";
+  font-weight: bold;
+}
+li {
+  float: left;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover:not(.active) {
+  background-color: #111;
+}
+.active {
+  background-color: #4CAF50;
+}
+/*
+table{
+	position: center;
+	border:1px solid black;
+	font-family: "FreeMono";
+	min-width:100px;
+	width: 75%;
+	max-width: 950px;
+	margin-left:auto; 
+    margin-right:auto;
+}
+td{
+	border:1px solid black;
+	font-size: 18px;
+}
+.biggestBoy{
+	font-weight: bold;
+	font-size: 21px;
+}
+.subbtn {
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  height: 32px;
+  color: black;
+  font-size: 14px;
+  background: #1ba8f0 ;
+  padding: 5px 20px 5px 20px;
+  text-decoration: none;
+  /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
+/*}
+.subbtn:hover {
+  background: #86cff7;
+  text-decoration: none;
+}
+.btn {
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  height: 32px;
+  color: black;
+  font-size: 14px;
+  background: #1ba8f0 ;
+  padding: 5px 20px 5px 20px;
+  text-decoration: none;
+  /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
+/*}
+
+.btn:hover {
+  background: #86cff7;
+  text-decoration: none;
+}
+fieldset {
+   margin: 1em auto;
+   background-color: #F5F5F5;
+   max-width: 950px;
+}
+form p {
+   margin-top: 0.5em;
+   margin-left: 5em;
+}
+form input[type="text"], form select {
+    font-size: 16px;
+    height: 24px;
+    padding: 3px;
+    width: 500px;
+}
+form select {
+    height: 30px;
+}
+legend {
+   background-color: #616161 ;
+   color: white;
+   margin: 0 auto;
+   width: 80%;
+   padding: 0.25em;
+   text-align: center;
+   font-weight: bold;
+   font-size: 24px;
+}
+.templatingSelect2 {
+  font-family: FreeMono;
+  padding-top: 10px;
+}*/
