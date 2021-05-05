@@ -26,8 +26,8 @@ public class LoginSystem {
         model.addAttribute("LoginInfo", information);
         LoginResponse response = new LoginResponse();
         /* Fill out the response with data from the database */
-        response.setName("Andrew Gabler");
-        response.setAuthenticated(false);
+        response.setName(information.getUsername()); /* Just to prove out we are receiving data */
+        response.setAuthenticated(true); /* As requested by Andy */
         response.setRole("Student");
         StudentInfo info = new StudentInfo();
         info.setAddress("1160 Dupont St");
