@@ -9,25 +9,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StudentLoanSystemApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(StudentLoanSystemApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(StudentLoanSystemApplication.class, args);
+    }
 
-	@RequestMapping("/")
-	public String index() {
-		return "Hello World!";
-	}
+    @RequestMapping("/")
+    public String index() {
+        return "Hello World!";
+    }
 
-
-	/**
-	 * close_this_application mapping
-	 * This function is used only to ensure the bootRun gradle task
-	 * finishes. This will be disabled on production runs so that
-	 * nobody can close the web application, but it's nice to close
-	 * the application when doing bootRun tests.
-	 */
-	@RequestMapping("/close_this_application")
-	public void quit() {
-		System.exit(0);
-	}
+    /**
+    * close_this_application mapping This function is used only to ensure the bootRun gradle task
+    * finishes. This will be disabled on production runs so that nobody can close the web
+    * application, but it's nice to close the application when doing bootRun tests.
+    */
+    @RequestMapping("/close_this_application")
+    public void quit() {
+        System.exit(0);
+    }
 }
