@@ -1,8 +1,7 @@
 package com.cs471.studentLoanSystem.login;
 
-import java.net.URI;
-
 import com.cs471.studentLoanSystem.roles.StudentInfo;
+import java.net.URI;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
