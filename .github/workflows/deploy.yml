@@ -1,7 +1,12 @@
 name: Build and Deploy Java Project to EC2
 
 on:
-  workflow_dispatch 
+  workflow_dispatch:
+    inputs:
+      TestOrProd:
+        description: 'Is this a test deploy or a production deploy'
+        required: true
+        default: 'Test'
 
 jobs:
   build:
@@ -43,5 +48,5 @@ jobs:
         username: ec2-user
         password: ${{ secrets.EC2_KEY }}
         port: 22
-        script: ./cs471project/backend/startscript.sh TEST
+        script: "./cs471project/backend/startscript.sh ${{ github.events.inputs.TestOrProd }}"
         
