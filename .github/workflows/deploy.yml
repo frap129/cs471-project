@@ -48,5 +48,5 @@ jobs:
         username: ec2-user
         password: ${{ secrets.EC2_KEY }}
         port: 22
-        script: "./cs471project/backend/startscript.sh ${{ github.events.inputs.TestOrProd }}"
+        script: "cd ~/cs471project/backend/; ./startscript.sh ${{ github.events.inputs.TestOrProd }}"
         
