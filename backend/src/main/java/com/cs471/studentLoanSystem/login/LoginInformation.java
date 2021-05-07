@@ -1,5 +1,6 @@
 package com.cs471.studentLoanSystem.login;
 
+@SuppressWarnings("unused")
 public class LoginInformation {
 
     private String username;

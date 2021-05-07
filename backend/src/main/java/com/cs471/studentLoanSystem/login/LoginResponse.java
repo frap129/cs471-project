@@ -3,6 +3,7 @@ package com.cs471.studentLoanSystem.login;
 import com.cs471.studentLoanSystem.roles.BankInfo;
 import com.cs471.studentLoanSystem.roles.StudentInfo;
 
+@SuppressWarnings("unused")
 public class LoginResponse {
 
     private String name;

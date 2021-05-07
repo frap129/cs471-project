@@ -1,5 +1,6 @@
 package com.cs471.studentLoanSystem.roles;
 
+@SuppressWarnings("unused")
 public class BankInfo {
     private int bankId;
     private String bankName;

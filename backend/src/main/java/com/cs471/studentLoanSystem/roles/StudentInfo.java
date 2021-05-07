@@ -1,5 +1,6 @@
 package com.cs471.studentLoanSystem.roles;
 
+@SuppressWarnings("unused")
 public class StudentInfo {
     private int studentId;
     private String address;
