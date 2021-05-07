@@ -13,6 +13,7 @@ public class LoginInformation {
 
     @Column(name = "Username", updatable = false, unique = true)
     private String username;
+
     private String password;
 
     public String getUsername() {
