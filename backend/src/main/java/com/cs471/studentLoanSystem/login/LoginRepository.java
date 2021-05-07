@@ -1,11 +1,10 @@
 package com.cs471.studentLoanSystem.login;
 
-import org.jetbrains.annotations.NotNull;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
 
-public interface LoginRepository extends CrudRepository<LoginInformation, String> {
+public interface LoginRepository extends JpaRepository<LoginInformation, Integer> {
 
-    Optional<LoginInformation> findById(@NotNull String username);
+    LoginInformation findById(int id);
+    LoginInformation findFirstByUsername(String username);
 }
