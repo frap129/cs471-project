@@ -1,8 +1,14 @@
 package com.cs471.studentLoanSystem.login;
 
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 @SuppressWarnings("unused")
+@Entity
 public class LoginInformation {
 
+    @Id
     private String username;
     private String password;
 
