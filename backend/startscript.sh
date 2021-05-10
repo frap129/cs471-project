@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# If we've specified a parameter, use it as the port, otherwise default the port
-# to 1334 which will be the release port
+# If we've specified the TEST parameter, use 1335 which is publicly exposed.
+# Otherwise port 1334 is used for production/release
 if [ "$1" = "TEST" ]
 then
   PORT=1335 # Test port
