@@ -35,7 +35,7 @@ jobs:
         username: ec2-user
         key : ${{ secrets.EC2_KEY }}
         port: 22
-        script: killall java; rm ~/cs471project/backend/*
+        script: killall -q java; rm -r ~/cs471project/backend/*
     - name: Move files to proper location to scp
       run: mv backend/build/libs/studentLoanSystem*.jar .; mv backend/startscript.sh .
     - name: Copy files to ec2 instance
