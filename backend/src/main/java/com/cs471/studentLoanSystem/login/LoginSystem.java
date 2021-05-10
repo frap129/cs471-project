@@ -6,8 +6,8 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,7 +17,7 @@ public class LoginSystem {
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> loginForm(
-            @ModelAttribute LoginInformation information, @NotNull Model model) {
+            @RequestBody LoginInformation information, @NotNull Model model) {
         model.addAttribute("LoginInfo", information);
         LoginResponse response = new LoginResponse();
 
@@ -25,9 +25,9 @@ public class LoginSystem {
         User selectedUser = sqlUserRepository.findByUsername(information.getUsername());
 
         /* Fill out the response with data from the database */
-        /* Could not find user, return 404 no such user */
+        /* Could not find user, return 400 no such user */
         if (selectedUser == null) {
-            return ResponseEntity.notFound().header("error", "No such user").build();
+            return ResponseEntity.badRequest().header("error", "No such user").build();
         }
         /* Found user but password doesn't match. Return relevant data but do not authenticate */
         if (!selectedUser.getPassword().equals(information.getPassword())) {
