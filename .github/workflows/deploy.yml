@@ -1,0 +1,56 @@
+name: Build and Deploy Java Project to EC2
+
+on:
+  workflow_dispatch:
+    inputs:
+      TestOrProd:
+        description: 'Is this a test deploy or a production deploy'
+        required: true
+        default: 'Test'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+    - name: Grant execute permission for gradlew
+      run: chmod +x backend/gradlew
+    - name: Build with Gradle
+      env:
+        DB_USERNAME: ${{ secrets.DB_USERNAME }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        DB_ADDRESS: 127.0.0.1
+      run: cd backend; ./gradlew build
+    - name: Clean ec2 instance deployment
+      uses: appleboy/ssh-action@master
+      with:
+        host: 52.14.239.79
+        username: ec2-user
+        password: ${{ secrets.EC2_KEY }}
+        port: 22
+        script: killall java; rm ~/cs471project/backend/*
+    - name: Copy files to ec2 instance
+      uses: appleboy/scp-action@master
+      with:
+        host: 52.14.239.79
+        username: ec2-user
+        password: ${{ secrets.EC2_KEY }}
+        port: 22
+        source: "backend/build/libs/*.jar,backend/startscript.sh"
+        target: "~/cs471project/backend/"
+    - name: Start backend deployment
+      uses: appleboy/ssh-action@master
+      with:
+        host: 52.14.239.79
+        username: ec2-user
+        password: ${{ secrets.EC2_KEY }}
+        port: 22
+        script: "cd ~/cs471project/backend/; ./startscript.sh ${{ github.events.inputs.TestOrProd }}"
+        

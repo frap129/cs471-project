@@ -1,7 +1,8 @@
 plugins {
-	id 'org.springframework.boot' version '2.4.5'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.4.5'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'com.diffplug.spotless' version '5.5.0'
+    id 'java'
 }
 
 group = 'com.cs471'
@@ -9,16 +10,43 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
-	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.jetbrains:annotations:20.1.0'
+    runtimeOnly 'mysql:mysql-connector-java'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    compile 'org.jetbrains:annotations:16.0.2'
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
+}
+
+spotless {
+    format 'misc', {
+        // define the files to apply `misc` to
+        target '*.gradle', '*.md', '.gitignore'
+
+        // define the steps to apply to those files
+        trimTrailingWhitespace()
+        indentWithSpaces(4) // or spaces. Takes an integer argument if you don't like 4
+        endWithNewline()
+    }
+    java {
+        target 'src/*/java/**/*.java'
+
+        toggleOffOn()
+        googleJavaFormat()
+        removeUnusedImports()
+        indentWithTabs(2)
+        indentWithSpaces(4)
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
 }
