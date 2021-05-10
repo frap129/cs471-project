@@ -27,9 +27,9 @@ jobs:
       run: cd backend; ./gradlew build
     - name: Run with Gradle BootRun
       env:
-        DB_USERNAME = ${{ secrets.DB_USERNAME }}
-        DB_PASSWORD = ${{ secrets.DB_PASSWORD }}
-        DB_ADDRESS = 52.14.239.79
+        DB_USERNAME: ${{ secrets.DB_USERNAME }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        DB_ADDRESS: 52.14.239.79
       run: |
         cd backend
         ./gradlew bootRun &

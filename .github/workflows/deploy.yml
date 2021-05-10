@@ -24,9 +24,9 @@ jobs:
       run: chmod +x backend/gradlew
     - name: Build with Gradle
       env:
-        DB_USERNAME = ${{ secrets.DB_USERNAME }}
-        DB_PASSWORD = ${{ secrets.DB_PASSWORD }}
-        DB_ADDRESS = 127.0.0.1
+        DB_USERNAME: ${{ secrets.DB_USERNAME }}
+        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        DB_ADDRESS: 127.0.0.1
       run: cd backend; ./gradlew build
     - name: Clean ec2 instance deployment
       uses: appleboy/ssh-action@master
