@@ -6,7 +6,7 @@ on:
       TestOrProd:
         description: 'Is this a test deploy or a production deploy'
         required: true
-        default: 'Test'
+        default: 'TEST'
 
 jobs:
   build:
