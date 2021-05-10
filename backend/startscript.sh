@@ -11,4 +11,5 @@ fi
 
 # This should be copied into the ec2-instance to run the jar
 # Detach the process so that we can start from a Github Action
-nohup java -jar -Dserver.port=$PORT studentLoanSystem-*.jar &
+java -jar -Dserver.port=$PORT studentLoanSystem-*.jar &
+disown -h

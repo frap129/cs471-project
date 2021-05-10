@@ -61,5 +61,6 @@ jobs:
         port: 22
         script: "cd ~/cs471project/backend/; 
                  chmod +x startscript.sh; 
-                 ./startscript.sh ${{ github.event.inputs.TestOrProd }} &"
+                 ./startscript.sh ${{ github.event.inputs.TestOrProd }};
+                 sleep 5"
         
