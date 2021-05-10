@@ -30,7 +30,7 @@ jobs:
       run: |
         cd backend
         chmod +x update_applications.properties.sh
-        ./update_application.properties.sh
+        ./update_applications.properties.sh
     - name: Build with Gradle
       run: cd backend; ./gradlew build
     - name: Clean ec2 instance deployment
