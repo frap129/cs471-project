@@ -33,7 +33,7 @@ jobs:
       with:
         host: 52.14.239.79
         username: ec2-user
-        password: ${{ secrets.EC2_KEY }}
+        key : ${{ secrets.EC2_KEY }}
         port: 22
         script: killall java; rm ~/cs471project/backend/*
     - name: Copy files to ec2 instance
@@ -41,7 +41,7 @@ jobs:
       with:
         host: 52.14.239.79
         username: ec2-user
-        password: ${{ secrets.EC2_KEY }}
+        key : ${{ secrets.EC2_KEY }}
         port: 22
         source: "backend/build/libs/*.jar,backend/startscript.sh"
         target: "~/cs471project/backend/"
@@ -50,7 +50,7 @@ jobs:
       with:
         host: 52.14.239.79
         username: ec2-user
-        password: ${{ secrets.EC2_KEY }}
+        key : ${{ secrets.EC2_KEY }}
         port: 22
         script: "cd ~/cs471project/backend/; ./startscript.sh ${{ github.events.inputs.TestOrProd }}"
         
