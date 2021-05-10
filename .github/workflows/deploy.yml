@@ -55,7 +55,7 @@ jobs:
     - name: Start backend deployment
       uses: appleboy/ssh-action@master
       env:
-        TEST_OR_PROD: ${{ github.events.inputs.TestOrProd }}
+        TEST_OR_PROD: ${{ github.event.inputs.TestOrProd }}
       with:
         host: 52.14.239.79
         username: ec2-user
@@ -63,6 +63,6 @@ jobs:
         port: 22
         script: "cd ~/cs471project/backend/; 
                  chmod +x startscript.sh; 
-                 ./startscript.sh $TEST_OR_PROD;
+                 ./startscript.sh $TEST_OR_PROD &;
                  kill $!"
         
