@@ -5,15 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-enum LoanStatus {
-    APPLIED,
-    APPROVED,
-    PAID
-}
 
 @SuppressWarnings("unused")
 @Entity
 public class Loan {
+    public enum LoanStatus {
+        APPLIED,
+        APPROVED,
+        PAID
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
