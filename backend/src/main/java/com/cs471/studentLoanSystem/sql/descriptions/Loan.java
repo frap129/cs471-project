@@ -11,6 +11,7 @@ public class Loan {
     public enum LoanStatus {
         APPLIED,
         APPROVED,
+        DENIED,
         PAID
     }
 
@@ -18,12 +19,12 @@ public class Loan {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private Integer bankId;
-    private Float loanAmount;
+    private int bankId;
+    private int studentId;
+    private float loanAmount;
     private Float loanInterest;
     private String loanTerms;
     private LoanStatus loanStatus;
-    private Integer studentId;
 
     public Integer getId() {
         return id;
@@ -33,19 +34,19 @@ public class Loan {
         this.id = id;
     }
 
-    public Integer getBankId() {
+    public int getBankId() {
         return bankId;
     }
 
-    public void setBankId(Integer bankId) {
+    public void setBankId(int bankId) {
         this.bankId = bankId;
     }
 
-    public Float getLoanAmount() {
+    public float getLoanAmount() {
         return loanAmount;
     }
 
-    public void setLoanAmount(Float loanAmount) {
+    public void setLoanAmount(float loanAmount) {
         this.loanAmount = loanAmount;
     }
 
@@ -73,11 +74,11 @@ public class Loan {
         this.loanStatus = loanStatus;
     }
 
-    public Integer getStudentId() {
+    public int getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(Integer studentId) {
+    public void setStudentId(int studentId) {
         this.studentId = studentId;
     }
 }
