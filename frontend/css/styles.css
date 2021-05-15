@@ -23,7 +23,7 @@ p{
   height: auto;
 }
 .side-crop { 
-	max-height: 325px; 
+	max-height: 248px; 
 	overflow: hidden; 
 	border-radius: 4px;
 }
@@ -56,7 +56,73 @@ li a:hover:not(.active) {
 .active {
   background-color: #4CAF50;
 }
+.btn {
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  height: 32px;
+  color: white;
+  font-size: 14px;
+  background: #ff1c01;
+  padding: 5px 15px 5px 15px;
+  text-decoration: none;
+  font-family: "FreeMono";
+  font-weight: bold;
+  /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
+}
+
+.btn:hover {
+  background: #fe4834;
+  text-decoration: none;
+}
+
+fieldset {
+   margin: 1em auto;
+   background-color: #F5F5F5;
+   max-width: 950px;
+}
+
+legend {
+   background-color: #616161;
+   color: white;
+   margin: 0 auto;
+   width: 100px;
+   padding: 0.25em;
+   text-align: center;
+   /*font-weight: bold;*/
+   font-size: 20px;
+   font-family: "FreeMono";
+}
 /*
+.subbtn {
+  -webkit-border-radius: 3;
+  -moz-border-radius: 3;
+  border-radius: 3px;
+  height: 32px;
+  color: black;
+  font-size: 14px;
+  background: #1ba8f0 ;
+  padding: 5px 20px 5px 20px;
+  text-decoration: none;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.subbtn:hover {
+  background: #86cff7;
+  text-decoration: none;
+}
+form p {
+   margin-top: 0.5em;
+   margin-left: 5em;
+}
+form input[type="text"], form select {
+    font-size: 16px;
+    height: 24px;
+    padding: 3px;
+    width: 500px;
+}
+form select {
+    height: 30px;
+}
 table{
 	position: center;
 	border:1px solid black;
@@ -75,67 +141,10 @@ td{
 	font-weight: bold;
 	font-size: 21px;
 }
-.subbtn {
-  -webkit-border-radius: 3;
-  -moz-border-radius: 3;
-  border-radius: 3px;
-  height: 32px;
-  color: black;
-  font-size: 14px;
-  background: #1ba8f0 ;
-  padding: 5px 20px 5px 20px;
-  text-decoration: none;
-  /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
-/*}
-.subbtn:hover {
-  background: #86cff7;
-  text-decoration: none;
-}
-.btn {
-  -webkit-border-radius: 3;
-  -moz-border-radius: 3;
-  border-radius: 3px;
-  height: 32px;
-  color: black;
-  font-size: 14px;
-  background: #1ba8f0 ;
-  padding: 5px 20px 5px 20px;
-  text-decoration: none;
-  /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
-/*}
 
-.btn:hover {
-  background: #86cff7;
-  text-decoration: none;
-}
-fieldset {
-   margin: 1em auto;
-   background-color: #F5F5F5;
-   max-width: 950px;
-}
-form p {
-   margin-top: 0.5em;
-   margin-left: 5em;
-}
-form input[type="text"], form select {
-    font-size: 16px;
-    height: 24px;
-    padding: 3px;
-    width: 500px;
-}
-form select {
-    height: 30px;
-}
-legend {
-   background-color: #616161 ;
-   color: white;
-   margin: 0 auto;
-   width: 80%;
-   padding: 0.25em;
-   text-align: center;
-   font-weight: bold;
-   font-size: 24px;
-}
+
+
+
 .templatingSelect2 {
   font-family: FreeMono;
   padding-top: 10px;
