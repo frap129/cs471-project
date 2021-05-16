@@ -10,10 +10,10 @@ class SessionUtil {
     const NAME_PROPERTY = "name";
 
     private const FORWARD_MAP = array(
-        "BANKOFFICER" => "/banker/index.php",
-        "LOANOFFICER" => "/banker/index.php",
-        "REGISTRAR" => "/registrar/index.php",
-        "STUDENT" => "/student/index.php"
+        "BANKOFFICER" => "/banker/",
+        "LOANOFFICER" => "/banker/",
+        "REGISTRAR" => "/registrar/",
+        "STUDENT" => "/student/"
     );
 
     public static function commonPageLoadSessionStep(?array $allowedRoles) {
@@ -35,7 +35,7 @@ class SessionUtil {
                     }
                 }
 
-                header("Location: index.php");
+                header("Location: /");
                 exit;
             } else {
                 self::forwardAuthenticatedSession();
@@ -44,7 +44,7 @@ class SessionUtil {
             // Okay, we're not authenticated. This the current screen better not require authentication!
             if ($roleNeeded) {
                 // User is in a location they can't be in. Send them to home page.
-                header("Location: index.php");
+                header("Location: /");
                 exit;
             }
         }

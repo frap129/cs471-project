@@ -5,6 +5,7 @@ require_once dirname(__FILE__) . "\\..\\sources\\CommonImports.php";
 
 // TODO validation message
 
+use com\web\PageUtil;
 use com\web\SessionUtil;
 
 use com\employu\web\face\HtmlDocument;
@@ -14,36 +15,9 @@ use com\web\rest\RestTemplate;
 
 function doRender() {
     $page = new HtmlDocument();
-    (new HtmlNode($page->getHead(), "title"))->setNestedText("Loan Dashboard");
-    $iconNode = new HtmlNode($page->getHead(), "link");
-    $iconNode->addAttribute("rel", "icon");
-    $iconNode->addAttribute("type", "image/png");
-    $iconNode->addAttribute("href", "css/images/favicon.png");
 
-    $styleNode = new HtmlNode($page->getHead(), "link");
-    $styleNode->addAttribute("rel", "stylesheet");
-    $styleNode->addAttribute("href", "css/styles.css?v=" . time());
-
-    $buttonSet = new HtmlNode($page->getBody(), "div");
-    $buttonList = new HtmlNode($buttonSet, "ul");
-
-    $homeButton = new HtmlNode($buttonList, "li");
-    $homeLink = new HtmlNode($homeButton, "a");
-    $homeLink->addAttribute("href", "/");
-    $homeLink->setNestedText("Home");
-
-    $loginButton = new HtmlNode($buttonList, "li");
-    $loginButton->addAttribute("style", "float:right");
-    $loginLink = new HtmlNode($loginButton, "a");
-    $loginLink->addAttribute("class", "active");
-    $loginLink->addAttribute("href", "#login.php");
-    $loginLink->setNestedText("Login");
-
-    $bannerNode = new HtmlNode($page->getBody(), "div");
-    $bannerNode->addAttribute("class", "side-crop");
-    $imageNode = new HtmlNode($bannerNode, "img");
-    $imageNode->addAttribute("src", "css/images/banner.jpg");
-    $imageNode->addAttribute("class", "responsive");
+    PageUtil::addHeaderToHtmlDocument($page);
+    PageUtil::addBannerAndNavControlsToHtmlDocument($page);
 
     $mainContent = new HtmlNode($page->getBody(), "center");
     $mainContent->addChild(new HtmlNode(null, "br"));

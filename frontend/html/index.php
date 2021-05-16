@@ -18,7 +18,7 @@ SessionUtil::commonPageLoadSessionStep(null);
 <div>
     <ul>
         <li><a class="active" href="/">Home</a></li>
-        <li style="float:right"><a href="login.php">Login</a></li>
+        <li style="float:right"><a class="login" href="login.php">Login</a></li>
     </ul>
 </div>
 <div class="side-crop">

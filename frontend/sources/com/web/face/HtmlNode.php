@@ -4,7 +4,6 @@ namespace com\employu\web\face;
 
 /**
  * Node on an HTML document.
- * @package com\employu\web\face
  * @author Andy Gabler
  * @since 2019/10/25
  */

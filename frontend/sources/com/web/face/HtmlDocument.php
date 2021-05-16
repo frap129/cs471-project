@@ -6,7 +6,6 @@ require_once dirname(__FILE__) . "/HtmlNode.php";
 
 /**
  * HTML document.
- * @package com\employu\web\face
  * @author Andy Gabler
  * @since 2019/10/25
  */

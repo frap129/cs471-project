@@ -56,6 +56,12 @@ li a:hover:not(.active) {
 .active {
   background-color: #4CAF50;
 }
+.login {
+    background-color: #12226E;
+}
+.logout {
+    background-color: #A1180E;
+}
 .btn {
   -webkit-border-radius: 3;
   -moz-border-radius: 3;
