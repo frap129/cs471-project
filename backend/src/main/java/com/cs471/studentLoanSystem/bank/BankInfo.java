@@ -1,4 +1,4 @@
-package com.cs471.studentLoanSystem.roles;
+package com.cs471.studentLoanSystem.bank;
 
 @SuppressWarnings("unused")
 public class BankInfo {

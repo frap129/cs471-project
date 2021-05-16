@@ -1,6 +1,6 @@
-package com.cs471.studentLoanSystem.login.response;
+package com.cs471.studentLoanSystem.common.login.response;
 
-import com.cs471.studentLoanSystem.roles.BankInfo;
+import com.cs471.studentLoanSystem.bank.BankInfo;
 
 public class BankOfficerResponse extends LoginResponse {
     private String name;
