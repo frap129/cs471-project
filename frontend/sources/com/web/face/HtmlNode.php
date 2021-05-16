@@ -1,6 +1,6 @@
 <?php
 
-namespace com\employu\web\face;
+namespace com\web\face;
 
 /**
  * Node on an HTML document.

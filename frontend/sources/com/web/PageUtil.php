@@ -2,8 +2,8 @@
 
 namespace com\web;
 
-use com\employu\web\face\HtmlDocument;
-use com\employu\web\face\HtmlNode;
+use com\web\face\HtmlDocument;
+use com\web\face\HtmlNode;
 
 class PageUtil {
 

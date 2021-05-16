@@ -1,6 +1,6 @@
 <?php
 
-namespace com\employu\web\face;
+namespace com\web\face;
 
 require_once dirname(__FILE__) . "/HtmlNode.php";
 
