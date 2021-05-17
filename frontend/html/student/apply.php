@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . "\\..\\..\\sources\\CommonImports.php";
+require_once dirname(__FILE__) . "/../../sources/CommonImports.php";
 
 use com\web\PageUtil;
 use com\web\rest\RestTemplate;
@@ -80,7 +80,7 @@ function doRender() {
     $noneSelectedOption->addAttribute("selected", "selected");
     $noneSelectedOption->setNestedText(" - None Selected - ");
 
-    $offerOptions = parse_ini_file(dirname(__FILE__) . "\\..\\..\\config\\loan-offers.ini", true);
+    $offerOptions = parse_ini_file(dirname(__FILE__) . "/../../config/loan-offers.ini", true);
     $optionIds = array_keys($offerOptions);
     foreach ($optionIds as $optionId) {
         $offerOption = new HtmlNode($offerField, "option");
