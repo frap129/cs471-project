@@ -5,8 +5,18 @@ namespace com\web;
 use com\web\face\HtmlDocument;
 use com\web\face\HtmlNode;
 
+/**
+ * Utility for common segments of pages.
+ *
+ * @author Andy Gabler
+ */
 class PageUtil {
 
+    /**
+     * Add header section to an HTML page.
+     *
+     * @param HtmlDocument $page The page to add it to
+     */
     public static function addHeaderToHtmlDocument(HtmlDocument $page) {
         (new HtmlNode($page->getHead(), "title"))->setNestedText("Loan Dashboard");
         $iconNode = new HtmlNode($page->getHead(), "link");
@@ -19,6 +29,11 @@ class PageUtil {
         $styleNode->addAttribute("href", "/css/styles.css?v=" . time());
     }
 
+    /**
+     * Add site banner to HTML page.
+     *
+     * @param HtmlDocument $page The page to add it to
+     */
     public static function addBannerAndNavControlsToHtmlDocument(HtmlDocument $page) {
         $authenticated = $_SESSION[SessionUtil::AUTHENTICATED_PROPERTY];
 

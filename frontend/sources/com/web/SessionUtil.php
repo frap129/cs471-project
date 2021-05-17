@@ -2,6 +2,11 @@
 
 namespace com\web;
 
+/**
+ * Utility for sessions.
+ *
+ * @author Andy Gabler
+ */
 class SessionUtil {
 
     const AUTHENTICATED_PROPERTY = "authenticated";
@@ -16,6 +21,11 @@ class SessionUtil {
         "STUDENT" => "/student/"
     );
 
+    /**
+     * Step to run when loading a page based on current session.
+     *
+     * @param array|null $allowedRoles The roles allowed. Null if this page requires no authentication.
+     */
     public static function commonPageLoadSessionStep(?array $allowedRoles) {
         session_start(); // Ensure session exists.
         if (!isset($_SESSION[self::AUTHENTICATED_PROPERTY])) {
@@ -50,6 +60,9 @@ class SessionUtil {
         }
     }
 
+    /**
+     * Forward user to proper page.
+     */
     public static function forwardAuthenticatedSession() {
         // So user is logged in but went to home page, forward them elsewhere
         $userRole = $_SESSION[self::ROLE_PROPERTY];

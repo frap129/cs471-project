@@ -3,21 +3,23 @@
 
 require_once dirname(__FILE__) . "\\..\\sources\\CommonImports.php";
 
-// TODO validation message
-
 use com\web\PageUtil;
 use com\web\SessionUtil;
-
 use com\web\face\HtmlDocument;
 use com\web\face\HtmlNode;
-
 use com\web\rest\RestTemplate;
+use com\web\ValidationUtil;
 
+/**
+ * Render the page.
+ */
 function doRender() {
     $page = new HtmlDocument();
 
     PageUtil::addHeaderToHtmlDocument($page);
     PageUtil::addBannerAndNavControlsToHtmlDocument($page);
+
+    ValidationUtil::addMessagesToHtmlNode($page->getBody());
 
     $mainContent = new HtmlNode($page->getBody(), "center");
     $mainContent->addChild(new HtmlNode(null, "br"));
@@ -73,9 +75,12 @@ function doRender() {
     $page->output();
 }
 
+/**
+ * Handle a post.
+ */
 function handlePost() {
-    if (!isset($_POST["pass"]) || !isset($_POST["uname"])) {
-        // TODO save validation message in session
+    if (!isset($_POST["pass"]) || $_POST["pass"] == null || !isset($_POST["uname"]) || $_POST["uname"] == null) {
+        ValidationUtil::validate("Missing credentials.");
         return;
     }
 
@@ -88,7 +93,7 @@ function handlePost() {
     $_SESSION[SessionUtil::AUTHENTICATED_PROPERTY] = $response["authenticated"];
 
     if (!$_SESSION[SessionUtil::AUTHENTICATED_PROPERTY]) {
-        // TODO validation
+        ValidationUtil::validate("Invalid credentials.");
         return;
     }
 

@@ -13,4 +13,17 @@ $page = new HtmlDocument();
 PageUtil::addHeaderToHtmlDocument($page);
 PageUtil::addBannerAndNavControlsToHtmlDocument($page);
 
+// TODO Ian Make me beautiful!
+$center = new HtmlNode($page->getBody(), "center");
+$portalDiv = new HtmlNode($center, "div");
+$portalDiv->addAttribute("width", "85%");
+$portalHeader = new HtmlNode($portalDiv, "h2");
+$portalHeader->setNestedText("Registrar Portal");
+$linkList = new HtmlNode($portalDiv, "ul");
+
+$viewLoansOption = new HtmlNode($linkList, "li");
+$viewLoanReference = new HtmlNode($viewLoansOption, "a");
+$viewLoanReference->addAttribute("href", "viewloans.php");
+$viewLoanReference->setNestedText("View Loans");
+
 $page->output();
