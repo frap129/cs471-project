@@ -56,6 +56,12 @@ li a:hover:not(.active) {
 .active {
   background-color: #4CAF50;
 }
+.login {
+    background-color: #12226E;
+}
+.logout {
+    background-color: #A1180E;
+}
 .btn {
   -webkit-border-radius: 3;
   -moz-border-radius: 3;
@@ -74,6 +80,16 @@ li a:hover:not(.active) {
 .btn:hover {
   background: #fe4834;
   text-decoration: none;
+}
+.validation {
+    background-color: #FF6B6B;
+    color: #520000;
+    padding: 3px;
+}
+.userMessage {
+    background-color: #ADFF85;
+    color: #0B2100;
+    padding: 3px;
 }
 
 fieldset {
