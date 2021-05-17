@@ -1,6 +1,6 @@
 <?php
 
-require_once dirname(__FILE__) . "\\..\\..\\sources\\CommonImports.php";
+require_once dirname(__FILE__) . "/../../sources/CommonImports.php";
 
 use com\web\PageUtil;
 use com\web\SessionUtil;

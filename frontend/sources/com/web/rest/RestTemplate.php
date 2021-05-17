@@ -21,7 +21,7 @@ class RestTemplate {
         $configPath = $aConfigPath;
 
         if ($configPath == null) {
-            $configPath = dirname(__FILE__) . "\\..\\..\\..\\..\\config\\";
+            $configPath = dirname(__FILE__) . "/../../../../config/";
         }
 
         $environment = parse_ini_file($configPath . "env-config.ini")["env"];
