@@ -1,4 +1,4 @@
-package com.cs471.studentLoanSystem.registrar.LoanListSystem;
+package com.cs471.studentLoanSystem.common.loanList;
 
 import com.cs471.studentLoanSystem.sql.LoanRepository;
 import com.cs471.studentLoanSystem.sql.descriptions.Loan;

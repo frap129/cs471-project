@@ -1,4 +1,4 @@
-package com.cs471.studentLoanSystem.registrar.LoanListSystem;
+package com.cs471.studentLoanSystem.common.loanList;
 
 public class LoanListInformation {
 
