@@ -11,11 +11,11 @@ N/A
  * Registrar Portal (registrar/index.php)
  * Student (student/index.php)
  * Loan Application (student/apply.php)
+ * com\web\PageUtil
 
 ### Stereotype - Business
 
  * com\web\rest\RestTemplate
- * com\web\PageUtil
  * com\web\SessionUtil
  * com\web\ValidationUtil
 
