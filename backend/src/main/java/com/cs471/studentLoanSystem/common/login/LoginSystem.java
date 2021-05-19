@@ -1,11 +1,10 @@
-package com.cs471.studentLoanSystem.login;
+package com.cs471.studentLoanSystem.common.login;
 
-import com.cs471.studentLoanSystem.login.response.BankOfficerResponse;
-import com.cs471.studentLoanSystem.login.response.LoginResponse;
-import com.cs471.studentLoanSystem.login.response.RegistrarResponse;
-import com.cs471.studentLoanSystem.login.response.StudentResponse;
-import com.cs471.studentLoanSystem.roles.BankInfo;
-import com.cs471.studentLoanSystem.roles.StudentInfo;
+import com.cs471.studentLoanSystem.bank.BankInfo;
+import com.cs471.studentLoanSystem.common.login.response.BankOfficerResponse;
+import com.cs471.studentLoanSystem.common.login.response.LoginResponse;
+import com.cs471.studentLoanSystem.common.login.response.RegistrarResponse;
+import com.cs471.studentLoanSystem.common.login.response.StudentResponse;
 import com.cs471.studentLoanSystem.sql.BankOfficerRepository;
 import com.cs471.studentLoanSystem.sql.BankRepository;
 import com.cs471.studentLoanSystem.sql.StudentRepository;
@@ -14,6 +13,7 @@ import com.cs471.studentLoanSystem.sql.descriptions.Bank;
 import com.cs471.studentLoanSystem.sql.descriptions.BankOfficer;
 import com.cs471.studentLoanSystem.sql.descriptions.Student;
 import com.cs471.studentLoanSystem.sql.descriptions.User;
+import com.cs471.studentLoanSystem.student.StudentInfo;
 import java.util.Optional;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;

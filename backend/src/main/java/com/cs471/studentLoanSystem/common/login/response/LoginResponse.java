@@ -1,4 +1,4 @@
-package com.cs471.studentLoanSystem.login.response;
+package com.cs471.studentLoanSystem.common.login.response;
 
 @SuppressWarnings("unused")
 public class LoginResponse {

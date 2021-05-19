@@ -1,6 +1,4 @@
-package com.cs471.studentLoanSystem.login;
-
-import javax.persistence.*;
+package com.cs471.studentLoanSystem.common.login;
 
 @SuppressWarnings("unused")
 public class LoginInformation {

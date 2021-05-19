@@ -1,6 +1,6 @@
-package com.cs471.studentLoanSystem.login.response;
+package com.cs471.studentLoanSystem.common.login.response;
 
-import com.cs471.studentLoanSystem.roles.StudentInfo;
+import com.cs471.studentLoanSystem.student.StudentInfo;
 
 public class StudentResponse extends LoginResponse {
     private StudentInfo studentInfo;
