@@ -1,6 +1,7 @@
 package com.cs471.studentLoanSystem.common.login;
 
 import com.cs471.studentLoanSystem.bank.BankInfo;
+import com.cs471.studentLoanSystem.common.UserRole;
 import com.cs471.studentLoanSystem.common.login.response.BankOfficerResponse;
 import com.cs471.studentLoanSystem.common.login.response.LoginResponse;
 import com.cs471.studentLoanSystem.common.login.response.RegistrarResponse;
@@ -25,11 +26,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class LoginSystem {
-    private final String BANK_OFFICER_ROLE = "BANKOFFICER";
-    private final String STUDENT_ROLE = "STUDENT";
-    private final String REGISTRAR_ROLE = "REGISTRAR";
-    private final String LOAN_OFFICER_ROLE = "LOANOFFICER";
-
     @Autowired private UserRepository sqlUserRepository;
     @Autowired private StudentRepository sqlStudentRepository;
     @Autowired private BankOfficerRepository sqlBankOfficerRepository;
@@ -58,9 +54,9 @@ public class LoginSystem {
         /* Found user and password matches, return all data */
 
         /* Check what role they are and fill in the necessary things */
-        switch (selectedUser.getRole()) {
-            case LOAN_OFFICER_ROLE:
-            case BANK_OFFICER_ROLE:
+        switch (UserRole.valueOf(selectedUser.getRole())) {
+            case BankOfficer:
+            case LoanOfficer:
                 {
                     Optional<BankOfficer> officerResponse =
                             sqlBankOfficerRepository.findById(selectedUser.getPerson_id());
@@ -88,7 +84,7 @@ public class LoginSystem {
 
                     return ResponseEntity.ok().body(response);
                 }
-            case STUDENT_ROLE:
+            case Student:
                 {
                     Optional<Student> studentResponse =
                             sqlStudentRepository.findById(selectedUser.getPerson_id());
@@ -112,7 +108,7 @@ public class LoginSystem {
 
                     return ResponseEntity.ok().body(response);
                 }
-            case REGISTRAR_ROLE:
+            case Registrar:
                 {
                     RegistrarResponse response = new RegistrarResponse();
                     response.setAuthenticated(true);
