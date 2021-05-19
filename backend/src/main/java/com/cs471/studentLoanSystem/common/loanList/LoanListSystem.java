@@ -2,6 +2,9 @@ package com.cs471.studentLoanSystem.common.loanList;
 
 import com.cs471.studentLoanSystem.sql.LoanRepository;
 import com.cs471.studentLoanSystem.sql.descriptions.Loan;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,10 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.Predicate;
 
 @RestController
 public class LoanListSystem {
