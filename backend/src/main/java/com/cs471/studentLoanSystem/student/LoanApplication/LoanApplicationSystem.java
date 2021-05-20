@@ -16,12 +16,12 @@ public class LoanApplicationSystem {
     public static final String TERMS_COMPLEX =
             "Unsubsidized, barring exceptional circumstance, only given to lowerclassmen.";
 
-    private static Loan template1 = new Loan(1, 0.07f, TERMS_UNSUBSIDIZED);
-    private static Loan template2 = new Loan(1, 0.05f, TERMS_UNSUBSIDIZED);
-    private static Loan template3 = new Loan(1, 0.02f, TERMS_SUBSIDIZED);
-    private static Loan template4 = new Loan(2, 0.089f, TERMS_UNSUBSIDIZED);
-    private static Loan template5 = new Loan(2, 0.06f, TERMS_SUBSIDIZED);
-    private static Loan template6 = new Loan(2, 0.01f, TERMS_COMPLEX);
+    private static final Loan template1 = new Loan(1, 0.07f, TERMS_UNSUBSIDIZED);
+    private static final Loan template2 = new Loan(1, 0.05f, TERMS_UNSUBSIDIZED);
+    private static final Loan template3 = new Loan(1, 0.02f, TERMS_SUBSIDIZED);
+    private static final Loan template4 = new Loan(2, 0.089f, TERMS_UNSUBSIDIZED);
+    private static final Loan template5 = new Loan(2, 0.06f, TERMS_SUBSIDIZED);
+    private static final Loan template6 = new Loan(2, 0.01f, TERMS_COMPLEX);
 
     @Autowired private LoanRepository loanRepo;
 
@@ -36,22 +36,22 @@ public class LoanApplicationSystem {
             Loan application;
             switch (information.getTemplateId()) {
                 case 1:
-                    application = template1;
+                    application = template1.clone();
                     break;
                 case 2:
-                    application = template2;
+                    application = template2.clone();
                     break;
                 case 3:
-                    application = template3;
+                    application = template3.clone();
                     break;
                 case 4:
-                    application = template4;
+                    application = template4.clone();
                     break;
                 case 5:
-                    application = template5;
+                    application = template5.clone();
                     break;
                 default:
-                    application = template6;
+                    application = template6.clone();
             }
             application.setStudentId(information.getStudentId());
             application.setLoanAmount(information.getAmount());
