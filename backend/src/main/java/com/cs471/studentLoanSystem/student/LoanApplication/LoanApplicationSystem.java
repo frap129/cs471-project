@@ -25,7 +25,7 @@ public class LoanApplicationSystem {
 
     @Autowired private LoanRepository loanRepo;
 
-    @PostMapping("/apply")
+    @PostMapping("/loan-application")
     public ResponseEntity<LoginResponse> applyForLoan(
             @RequestBody ApplicationInformation information, @NotNull Model model) {
         model.addAttribute("LoanApplication", information);
