@@ -8,6 +8,7 @@ import com.cs471.studentLoanSystem.sql.descriptions.Student;
 import java.util.Optional;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,6 +39,12 @@ public class LoanSystem {
                     .build();
         }
         Student student = studentOptional.get();
+
+        if (loan.getBankId() != information.getBankerId()) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                    .header("error", "Banker ID doesn't match loan's Bank ID")
+                    .build();
+        }
 
         LoanResponse ret = new LoanResponse();
         ret.setName(student.getStudent_name());
