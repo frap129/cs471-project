@@ -1,6 +1,5 @@
 package com.cs471.studentLoanSystem.student.LoanApplication;
 
-import com.cs471.studentLoanSystem.common.login.response.LoginResponse;
 import com.cs471.studentLoanSystem.sql.LoanRepository;
 import com.cs471.studentLoanSystem.sql.descriptions.*;
 import org.jetbrains.annotations.NotNull;
@@ -26,7 +25,7 @@ public class LoanApplicationSystem {
     @Autowired private LoanRepository loanRepo;
 
     @PostMapping("/loan-application")
-    public ResponseEntity<LoginResponse> applyForLoan(
+    public ResponseEntity<ApplicationResponse> applyForLoan(
             @RequestBody ApplicationInformation information, @NotNull Model model) {
         model.addAttribute("LoanApplication", information);
 
@@ -56,12 +55,14 @@ public class LoanApplicationSystem {
             application.setStudentId(information.getStudentId());
             application.setLoanAmount(information.getAmount());
             loanRepo.save(application);
-            return ResponseEntity.ok().header("result", "SUCCESS").build();
-        }
 
-        return ResponseEntity.badRequest()
-                .header("result", "ERRED")
-                .header("error", "Something went wrong when filling out information")
-                .build();
+            ApplicationResponse ret = new ApplicationResponse();
+            ret.setResult(ApplicationResponse.Result.ok);
+            return ResponseEntity.ok().body(ret);
+        }
+        ApplicationResponse ret = new ApplicationResponse();
+        ret.setResult(ApplicationResponse.Result.err);
+        ret.setError();
+        return ResponseEntity.badRequest().body(ret);
     }
 }
