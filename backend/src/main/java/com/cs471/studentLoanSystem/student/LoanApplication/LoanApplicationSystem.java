@@ -23,10 +23,11 @@ public class LoanApplicationSystem {
                 && information.getStudentId() != null) {
             try {
                 // Build Loan
-                Loan application = LoanBuilder.setTemplate(information.getTemplateId())
-                        .setStudentId(information.getStudentId())
-                        .setLoanAmount(information.getAmount())
-                        .build();
+                Loan application =
+                        LoanBuilder.setTemplate(information.getTemplateId())
+                                .setStudentId(information.getStudentId())
+                                .setLoanAmount(information.getAmount())
+                                .build();
                 loanRepo.save(application);
 
                 // Respond with success
