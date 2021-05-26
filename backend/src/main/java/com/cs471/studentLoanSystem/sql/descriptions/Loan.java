@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 @SuppressWarnings("unused")
 @Entity
-public class Loan implements Cloneable {
+public class Loan {
     public enum LoanStatus {
         PENDING,
         APPROVED,
@@ -25,32 +25,6 @@ public class Loan implements Cloneable {
     private Float loanInterest;
     private String loanTerms;
     private LoanStatus loanStatus;
-
-    public Loan() {}
-
-    public Loan(
-            Integer id,
-            int bankId,
-            int studentId,
-            float loanAmount,
-            Float loanInterest,
-            String loanTerms,
-            LoanStatus loanStatus) {
-        this.id = id;
-        this.bankId = bankId;
-        this.studentId = studentId;
-        this.loanAmount = loanAmount;
-        this.loanInterest = loanInterest;
-        this.loanTerms = loanTerms;
-        this.loanStatus = loanStatus;
-    }
-
-    public Loan(int bankId, Float loanInterest, String loanTerms) {
-        this.bankId = bankId;
-        this.loanInterest = loanInterest;
-        this.loanTerms = loanTerms;
-        this.loanStatus = LoanStatus.PENDING;
-    }
 
     public Integer getId() {
         return id;
@@ -106,21 +80,5 @@ public class Loan implements Cloneable {
 
     public void setStudentId(int studentId) {
         this.studentId = studentId;
-    }
-
-    @Override
-    public Loan clone() {
-        try {
-            return (Loan) super.clone();
-        } catch (CloneNotSupportedException e) {
-            return new Loan(
-                    this.getId(),
-                    this.getBankId(),
-                    this.getStudentId(),
-                    this.getLoanAmount(),
-                    this.getLoanInterest(),
-                    this.getLoanTerms(),
-                    this.getLoanStatus());
-        }
     }
 }
