@@ -55,8 +55,8 @@ public class LoginSystem {
 
         /* Check what role they are and fill in the necessary things */
         switch (UserRole.valueOf(selectedUser.getRole())) {
-            case BankOfficer:
-            case LoanOfficer:
+            case BANKOFFICER:
+            case LOANOFFICER:
                 {
                     Optional<BankOfficer> officerResponse =
                             sqlBankOfficerRepository.findById(selectedUser.getPerson_id());
@@ -84,7 +84,7 @@ public class LoginSystem {
 
                     return ResponseEntity.ok().body(response);
                 }
-            case Student:
+            case STUDENT:
                 {
                     Optional<Student> studentResponse =
                             sqlStudentRepository.findById(selectedUser.getPerson_id());
@@ -108,7 +108,7 @@ public class LoginSystem {
 
                     return ResponseEntity.ok().body(response);
                 }
-            case Registrar:
+            case REGISTRAR:
                 {
                     RegistrarResponse response = new RegistrarResponse();
                     response.setAuthenticated(true);
