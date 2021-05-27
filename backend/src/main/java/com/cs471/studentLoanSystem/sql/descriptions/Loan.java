@@ -24,7 +24,7 @@ public class Loan {
     private float loanAmount;
     private Float loanInterest;
     private String loanTerms;
-    private LoanStatus loanStatus;
+    private String loanStatus;
 
     public Integer getId() {
         return id;
@@ -66,11 +66,11 @@ public class Loan {
         this.loanTerms = loanTerms;
     }
 
-    public LoanStatus getLoanStatus() {
+    public String getLoanStatus() {
         return loanStatus;
     }
 
-    public void setLoanStatus(LoanStatus loanStatus) {
+    public void setLoanStatus(String loanStatus) {
         this.loanStatus = loanStatus;
     }
 

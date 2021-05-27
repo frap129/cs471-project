@@ -74,7 +74,7 @@ public class LoanBuilder {
         loan.setBankId(bankId);
         loan.setStudentId(studentId);
         loan.setLoanAmount(loanAmount);
-        loan.setLoanStatus(loanStatus);
+        loan.setLoanStatus(loanStatus.toString());
         loan.setLoanInterest(loanInterest);
         loan.setLoanTerms(loanTerms);
         return loan;
