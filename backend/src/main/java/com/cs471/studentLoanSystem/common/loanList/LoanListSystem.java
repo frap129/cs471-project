@@ -4,6 +4,7 @@ import com.cs471.studentLoanSystem.sql.LoanRepository;
 import com.cs471.studentLoanSystem.sql.descriptions.Loan;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoanListSystem {
     @Autowired private LoanRepository loanRepo;
+    @Autowired private Function<List<Loan>, LoanListResponse> loanListToLoanListResponseTransformer;
 
     public static Predicate<Loan> wrongStudentId(int id) {
         return p -> p.getStudent().getId() != id;
@@ -49,10 +51,7 @@ public class LoanListSystem {
             loans = Arrays.asList(loanRepo.findAllByBankId(info.getBankId()));
         }
 
-        LoanListResponse response = new LoanListResponse();
-        if (loans != null) {
-            response.setLoanList(loans);
-        }
+        LoanListResponse response = loanListToLoanListResponseTransformer.apply(loans);
 
         return ResponseEntity.ok().body(response);
     }
