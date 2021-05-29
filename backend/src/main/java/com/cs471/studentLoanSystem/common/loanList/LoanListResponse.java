@@ -1,16 +1,17 @@
 package com.cs471.studentLoanSystem.common.loanList;
 
 import com.cs471.studentLoanSystem.sql.descriptions.Loan;
+import java.util.List;
 
 public class LoanListResponse {
 
-    private Loan[] loanList;
+    private List<Loan> loanList;
 
-    public Loan[] getLoanList() {
+    public List<Loan> getLoanList() {
         return loanList;
     }
 
-    public void setLoanList(Loan[] loanList) {
+    public void setLoanList(List<Loan> loanList) {
         this.loanList = loanList;
     }
 }

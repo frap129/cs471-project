@@ -1,6 +1,7 @@
 package com.cs471.studentLoanSystem.common;
 
 import com.cs471.studentLoanSystem.sql.descriptions.Loan;
+import com.cs471.studentLoanSystem.sql.descriptions.Student;
 
 public class LoanBuilder {
     public static final String TERMS_UNSUBSIDIZED = "Unsubsidized";
@@ -9,7 +10,7 @@ public class LoanBuilder {
             "Unsubsidized, barring exceptional circumstance, only given to lowerclassmen.";
 
     private int bankId;
-    private int studentId;
+    private Student student;
     private float loanAmount;
     private Float loanInterest;
     private String loanTerms;
@@ -59,8 +60,8 @@ public class LoanBuilder {
         return builder;
     }
 
-    public LoanBuilder setStudentId(int studentId) {
-        this.studentId = studentId;
+    public LoanBuilder setStudent(Student student) {
+        this.student = student;
         return this;
     }
 
@@ -72,7 +73,7 @@ public class LoanBuilder {
     public Loan build() {
         Loan loan = new Loan();
         loan.setBankId(bankId);
-        loan.setStudentId(studentId);
+        loan.setStudent(student);
         loan.setLoanAmount(loanAmount);
         loan.setLoanStatus(loanStatus.toString());
         loan.setLoanInterest(loanInterest);

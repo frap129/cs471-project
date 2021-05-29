@@ -11,6 +11,6 @@ public interface LoanRepository extends CrudRepository<Loan, Integer> {
 
     Loan[] findAllByBankId(Integer bankId);
 
-    @Query("FROM loan u JOIN student s on s.student_id = u.student_id WHERE s.school_name = ?1")
+    @Query("SELECT u FROM loan u JOIN u.student as s WHERE s.student_school = ?1")
     Loan[] findAllBySchoolName(String schoolName);
 }

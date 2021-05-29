@@ -4,9 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @SuppressWarnings("unused")
-@Entity
+@Entity(name = "loan")
 public class Loan {
     public enum LoanStatus {
         PENDING,
@@ -20,7 +22,11 @@ public class Loan {
     private Integer id;
 
     private int bankId;
-    private int studentId;
+
+    @ManyToOne
+    @JoinColumn(name = "student_id", nullable = false)
+    private Student student;
+
     private float loanAmount;
     private Float loanInterest;
     private String loanTerms;
@@ -74,11 +80,11 @@ public class Loan {
         this.loanStatus = loanStatus;
     }
 
-    public int getStudentId() {
-        return studentId;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 }

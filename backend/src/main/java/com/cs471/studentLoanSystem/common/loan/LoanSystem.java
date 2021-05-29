@@ -32,7 +32,7 @@ public class LoanSystem {
         }
         Loan loan = loanOptional.get();
 
-        Optional<Student> studentOptional = sqlStudentRepository.findById(loan.getStudentId());
+        Optional<Student> studentOptional = sqlStudentRepository.findById(loan.getStudent().getId());
         if (studentOptional.isEmpty()) {
             return ResponseEntity.badRequest()
                     .header("error", "Cannot find student associated with loan")

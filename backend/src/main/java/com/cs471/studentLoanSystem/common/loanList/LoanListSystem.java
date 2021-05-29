@@ -18,7 +18,7 @@ public class LoanListSystem {
     @Autowired private LoanRepository loanRepo;
 
     public static Predicate<Loan> wrongStudentId(int id) {
-        return p -> p.getStudentId() != id;
+        return p -> p.getStudent().getId() != id;
     }
 
     public static Predicate<Loan> wrongBankId(int id) {
@@ -41,7 +41,7 @@ public class LoanListSystem {
                 loans.removeIf(wrongStudentId(info.getStudentId()));
             }
         } else if (info.getStudentId() != null) {
-            loans = Arrays.asList(loanRepo.findAllByBankId(info.getStudentId()));
+            loans = Arrays.asList(loanRepo.findAllByStudentId(info.getStudentId()));
             if (info.getBankId() != null) {
                 loans.removeIf(wrongBankId(info.getBankId()));
             }
@@ -51,7 +51,7 @@ public class LoanListSystem {
 
         LoanListResponse response = new LoanListResponse();
         if (loans != null) {
-            response.setLoanList((Loan[]) loans.toArray());
+            response.setLoanList(loans);
         }
 
         return ResponseEntity.ok().body(response);
