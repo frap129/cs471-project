@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String student_name;
@@ -18,7 +18,7 @@ public class Student {
     private Integer student_credit_score;
     private Double student_family_income;
     private Double student_tuition;
-    private Integer student_id;
+    private Integer studentId;
 
     public Integer getId() {
         return id;
@@ -76,11 +76,11 @@ public class Student {
         this.student_tuition = student_tuition;
     }
 
-    public Integer getStudent_id() {
-        return student_id;
+    public Integer getStudentId() {
+        return studentId;
     }
 
-    public void setStudent_id(Integer student_id) {
-        this.student_id = student_id;
+    public void setStudentId(Integer student_id) {
+        this.studentId = student_id;
     }
 }

@@ -95,7 +95,7 @@ public class LoginSystem {
 
                     /* Fill out the Student Information */
                     StudentInfo studentInfo = new StudentInfo();
-                    studentInfo.setStudentId(student.getStudent_id());
+                    studentInfo.setStudentId(student.getStudentId());
                     studentInfo.setSchool(student.getStudent_school());
                     studentInfo.setAddress(student.getStudent_address());
 

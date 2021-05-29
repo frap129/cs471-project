@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 @SuppressWarnings("unused")
 @Entity
-public class Loan implements Cloneable {
+public class Loan {
     public enum LoanStatus {
         PENDING,
         APPROVED,
@@ -24,33 +24,7 @@ public class Loan implements Cloneable {
     private float loanAmount;
     private Float loanInterest;
     private String loanTerms;
-    private LoanStatus loanStatus;
-
-    public Loan() {}
-
-    public Loan(
-            Integer id,
-            int bankId,
-            int studentId,
-            float loanAmount,
-            Float loanInterest,
-            String loanTerms,
-            LoanStatus loanStatus) {
-        this.id = id;
-        this.bankId = bankId;
-        this.studentId = studentId;
-        this.loanAmount = loanAmount;
-        this.loanInterest = loanInterest;
-        this.loanTerms = loanTerms;
-        this.loanStatus = loanStatus;
-    }
-
-    public Loan(int bankId, Float loanInterest, String loanTerms) {
-        this.bankId = bankId;
-        this.loanInterest = loanInterest;
-        this.loanTerms = loanTerms;
-        this.loanStatus = LoanStatus.PENDING;
-    }
+    private String loanStatus;
 
     public Integer getId() {
         return id;
@@ -92,11 +66,11 @@ public class Loan implements Cloneable {
         this.loanTerms = loanTerms;
     }
 
-    public LoanStatus getLoanStatus() {
+    public String getLoanStatus() {
         return loanStatus;
     }
 
-    public void setLoanStatus(LoanStatus loanStatus) {
+    public void setLoanStatus(String loanStatus) {
         this.loanStatus = loanStatus;
     }
 
@@ -106,21 +80,5 @@ public class Loan implements Cloneable {
 
     public void setStudentId(int studentId) {
         this.studentId = studentId;
-    }
-
-    @Override
-    public Loan clone() {
-        try {
-            return (Loan) super.clone();
-        } catch (CloneNotSupportedException e) {
-            return new Loan(
-                    this.getId(),
-                    this.getBankId(),
-                    this.getStudentId(),
-                    this.getLoanAmount(),
-                    this.getLoanInterest(),
-                    this.getLoanTerms(),
-                    this.getLoanStatus());
-        }
     }
 }

@@ -27,14 +27,13 @@ function handlePost() {
     $request["studentId"] = $_SESSION[SessionUtil::INFO_PROPERTY]["studentId"];
 
     $restTemplate = new RestTemplate();
-    // TODO Make sure this is actually on the path
     $loanResponse = $restTemplate->makeRequest("/loan-application", $request);
 
     if (isset($loanResponse["result"]) && $loanResponse["result"] == "SUCCESS") {
         ValidationUtil::messageUser("Loan application submitted!");
     } else {
-        if (isset($loanResponse["errorDescription"])) {
-            ValidationUtil::validate($loanResponse["errorDescription"]);
+        if (isset($loanResponse["error"])) {
+            ValidationUtil::validate($loanResponse["errMsg"]);
         } else {
             ValidationUtil::validate("System error occurred. Please try again later.");
         }
