@@ -26,4 +26,9 @@ $applyReference = new HtmlNode($applyForLoanOption, "a");
 $applyReference->addAttribute("href", "apply.php");
 $applyReference->setNestedText("Apply For Loan");
 
+$viewOffersOption = new HtmlNode($linkList, "li");
+$viewOfferReference = new HtmlNode($viewOffersOption, "a");
+$viewOfferReference->addAttribute("href", "offers.php");
+$viewOfferReference->setNestedText("Loan Offers");
+
 $page->output();
