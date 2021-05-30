@@ -46,7 +46,7 @@ public class LoanListSystem {
         // Get the list of loans
         List<Loan> loans = null;
         if (info.getSchoolName() != null) {
-            loans = Arrays.asList(loanRepo.findAllBySchoolName(info.getSchoolName()));
+            loans = new ArrayList<>(Arrays.asList(loanRepo.findAllBySchoolName(info.getSchoolName())));
             if (bankPid != null) {
                 loans.removeIf(wrongBankId(bankPid));
             }
@@ -55,7 +55,7 @@ public class LoanListSystem {
             }
         } else if (info.getStudentId() != null) {
             Student student = studentRepository.findByStudentId(info.getStudentId());
-            loans = Arrays.asList(loanRepo.findAllByStudent(student));
+            loans = new ArrayList<>(Arrays.asList(loanRepo.findAllByStudent(student)));
             if (bankPid != null) {
                 loans.removeIf(wrongBankId(bankPid));
             }
