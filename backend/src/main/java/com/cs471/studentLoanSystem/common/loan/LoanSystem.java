@@ -1,5 +1,6 @@
 package com.cs471.studentLoanSystem.common.loan;
 
+import com.cs471.studentLoanSystem.common.loan.response.ApproveResponse;
 import com.cs471.studentLoanSystem.common.loan.response.LoanResponse;
 import com.cs471.studentLoanSystem.sql.LoanRepository;
 import com.cs471.studentLoanSystem.sql.StudentRepository;
@@ -56,6 +57,34 @@ public class LoanSystem {
         ret.setLoanAmount(loan.getLoanAmount());
         ret.setInterest(loan.getLoanInterest());
         ret.setTerms(loan.getLoanTerms());
+        ret.setStatus(loan.getLoanStatus());
+
+        return ResponseEntity.ok().body(ret);
+    }
+
+    @PostMapping("/approveLoan")
+    public ResponseEntity<ApproveResponse> approveLoan(
+            @RequestBody LoanApproveInformation information, @NotNull Model model) {
+        Optional<Loan> loanOptional = sqlLoanRepository.findById(information.getLoanId());
+        if (loanOptional.isEmpty()) {
+            return ResponseEntity.badRequest().header("error", "Cannot find loan by id").build();
+        }
+        Loan loan = loanOptional.get();
+        if (!loan.getLoanStatus().equals(Loan.LoanStatus.PENDING.toString())) {
+            ApproveResponse ret = new ApproveResponse();
+            ret.setResult("FAILURE");
+            ret.setError("Loan is not pending approval");
+            return ResponseEntity.ok().body(ret);
+        }
+
+        loan.setLoanStatus(
+                information.isApprove()
+                        ? Loan.LoanStatus.APPROVED.toString()
+                        : Loan.LoanStatus.DENIED.toString());
+        sqlLoanRepository.save(loan);
+
+        ApproveResponse ret = new ApproveResponse();
+        ret.setResult("SUCCESS");
 
         return ResponseEntity.ok().body(ret);
     }
