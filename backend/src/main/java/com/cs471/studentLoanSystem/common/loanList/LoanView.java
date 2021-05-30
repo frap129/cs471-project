@@ -5,10 +5,12 @@ public class LoanView {
     private float amount;
     private Double tuition;
     private Integer studentId;
+    private String studentName;
     private String school;
     private String interest;
     private Integer loanId;
     private String bank;
+    private int bankId;
 
     public float getAmount() {
         return amount;
@@ -64,5 +66,21 @@ public class LoanView {
 
     public void setBank(String bank) {
         this.bank = bank;
+    }
+
+    public int getBankId() {
+        return bankId;
+    }
+
+    public void setBankId(int bankId) {
+        this.bankId = bankId;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 }

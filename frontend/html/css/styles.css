@@ -91,6 +91,9 @@ li a:hover:not(.active) {
     color: #0B2100;
     padding: 3px;
 }
+.filterbar {
+    display: inline-block;
+}
 
 fieldset {
    margin: 1em auto;

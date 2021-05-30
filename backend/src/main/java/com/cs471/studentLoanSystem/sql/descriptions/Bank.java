@@ -1,9 +1,6 @@
 package com.cs471.studentLoanSystem.sql.descriptions;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @SuppressWarnings("unused")
 @Entity
@@ -13,7 +10,9 @@ public class Bank {
     private Integer id;
 
     private String bank_name;
-    private Integer bank_id;
+
+    @Column(name = "bank_id")
+    private Integer bankId;
 
     public Integer getId() {
         return id;
@@ -31,11 +30,11 @@ public class Bank {
         this.bank_name = bank_name;
     }
 
-    public Integer getBank_id() {
-        return bank_id;
+    public Integer getBankId() {
+        return bankId;
     }
 
-    public void setBank_id(Integer bank_id) {
-        this.bank_id = bank_id;
+    public void setBankId(Integer bankId) {
+        this.bankId = bankId;
     }
 }
