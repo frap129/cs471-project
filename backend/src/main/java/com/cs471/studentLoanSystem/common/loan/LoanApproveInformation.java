@@ -2,16 +2,16 @@ package com.cs471.studentLoanSystem.common.loan;
 
 @SuppressWarnings("unused")
 public class LoanApproveInformation {
-    private int bankerId;
+    private int userId;
     private int loanId;
     private boolean approved;
 
-    public int getBankerId() {
-        return bankerId;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setBankerId(int bankerId) {
-        this.bankerId = bankerId;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public int getLoanId() {

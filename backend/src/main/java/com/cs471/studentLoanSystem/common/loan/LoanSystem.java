@@ -1,11 +1,16 @@
 package com.cs471.studentLoanSystem.common.loan;
 
+import com.cs471.studentLoanSystem.common.UserRole;
 import com.cs471.studentLoanSystem.common.loan.response.ApproveResponse;
 import com.cs471.studentLoanSystem.common.loan.response.LoanResponse;
+import com.cs471.studentLoanSystem.sql.BankOfficerRepository;
 import com.cs471.studentLoanSystem.sql.LoanRepository;
 import com.cs471.studentLoanSystem.sql.StudentRepository;
+import com.cs471.studentLoanSystem.sql.UserRepository;
+import com.cs471.studentLoanSystem.sql.descriptions.BankOfficer;
 import com.cs471.studentLoanSystem.sql.descriptions.Loan;
 import com.cs471.studentLoanSystem.sql.descriptions.Student;
+import com.cs471.studentLoanSystem.sql.descriptions.User;
 import java.util.Optional;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +25,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoanSystem {
 
     @Autowired private LoanRepository sqlLoanRepository;
+    @Autowired private UserRepository sqlUserRepository;
     @Autowired private StudentRepository sqlStudentRepository;
+    @Autowired private BankOfficerRepository sqlBankOfficerRepository;
 
     @PostMapping("/getLoan")
     public ResponseEntity<LoanResponse> getLoan(
@@ -77,7 +84,26 @@ public class LoanSystem {
             return ResponseEntity.ok().body(ret);
         }
 
-        if (loan.getBankId() != information.getBankerId()) {
+        Optional<User> userOptional = sqlUserRepository.findById(information.getUserId());
+        if (userOptional.isEmpty()) {
+            return ResponseEntity.badRequest().header("error", "Cannot find user by id").build();
+        }
+        User user = userOptional.get();
+        if (!user.getRole().equals(UserRole.LOANOFFICER)) {
+            ApproveResponse ret = new ApproveResponse();
+            ret.setResult("FAILURE");
+            ret.setError("User is not a LoanOfficer");
+            return ResponseEntity.ok().body(ret);
+        }
+
+        Optional<BankOfficer> bankOfficerOptional =
+                sqlBankOfficerRepository.findById(user.getPerson_id());
+        if (bankOfficerOptional.isEmpty()) {
+            return ResponseEntity.badRequest().header("error", "Cannot find bank officer by id").build();
+        }
+        BankOfficer bankOfficer = bankOfficerOptional.get();
+
+        if (loan.getBankId() != bankOfficer.getBank_id()) {
             ApproveResponse ret = new ApproveResponse();
             ret.setResult("FAILURE");
             ret.setError("Banker ID does not match");
