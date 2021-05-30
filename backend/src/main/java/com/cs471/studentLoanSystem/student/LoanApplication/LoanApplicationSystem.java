@@ -30,7 +30,7 @@ public class LoanApplicationSystem {
                 // Build Loan
                 Loan application =
                         LoanBuilder.setTemplate(information.getTemplateId())
-                                .setStudentId(student.getId())
+                                .setStudent(student)
                                 .setLoanAmount(information.getAmount())
                                 .build();
                 loanRepo.save(application);
