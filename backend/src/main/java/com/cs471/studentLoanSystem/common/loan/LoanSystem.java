@@ -77,6 +77,13 @@ public class LoanSystem {
             return ResponseEntity.ok().body(ret);
         }
 
+        if(loan.getBankId() != information.getBankerId()) {
+            ApproveResponse ret = new ApproveResponse();
+            ret.setResult("FAILURE");
+            ret.setError("Banker ID does not match");
+            return ResponseEntity.ok().body(ret);
+        }
+
         loan.setLoanStatus(
                 information.isApprove()
                         ? Loan.LoanStatus.APPROVED.toString()
