@@ -4,7 +4,7 @@ package com.cs471.studentLoanSystem.common.loan;
 public class LoanApproveInformation {
     private int bankerId;
     private int loanId;
-    private boolean approve;
+    private boolean approved;
 
     public int getBankerId() {
         return bankerId;
@@ -22,11 +22,11 @@ public class LoanApproveInformation {
         this.loanId = loanId;
     }
 
-    public boolean isApprove() {
-        return approve;
+    public boolean isApproved() {
+        return approved;
     }
 
-    public void setApprove(boolean approve) {
-        this.approve = approve;
+    public void setApproved(boolean approved) {
+        this.approved = approved;
     }
 }

@@ -85,7 +85,7 @@ public class LoanSystem {
         }
 
         loan.setLoanStatus(
-                information.isApprove()
+                information.isApproved()
                         ? Loan.LoanStatus.APPROVED.toString()
                         : Loan.LoanStatus.DENIED.toString());
         sqlLoanRepository.save(loan);
