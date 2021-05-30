@@ -89,7 +89,7 @@ public class LoanSystem {
             return ResponseEntity.badRequest().header("error", "Cannot find user by id").build();
         }
         User user = userOptional.get();
-        if (!user.getRole().equals(UserRole.LOANOFFICER)) {
+        if (!user.getRole().equals(UserRole.LOANOFFICER.toString())) {
             ApproveResponse ret = new ApproveResponse();
             ret.setResult("FAILURE");
             ret.setError("User is not a LoanOfficer");
