@@ -6,6 +6,12 @@ public class StudentInfo {
     private String address;
     private String school;
 
+    public StudentInfo(int studentId, String address, String school) {
+        this.studentId = studentId;
+        this.address = address;
+        this.school = school;
+    }
+
     public int getStudentId() {
         return studentId;
     }

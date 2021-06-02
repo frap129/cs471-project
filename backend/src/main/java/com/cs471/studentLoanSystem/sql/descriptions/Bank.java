@@ -14,6 +14,11 @@ public class Bank {
     @Column(name = "bank_id")
     private Integer bankId;
 
+    public Bank(String bank_name, Integer bankId) {
+        this.bank_name = bank_name;
+        this.bankId = bankId;
+    }
+
     public Integer getId() {
         return id;
     }

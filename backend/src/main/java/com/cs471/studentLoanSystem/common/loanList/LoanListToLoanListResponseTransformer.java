@@ -16,21 +16,22 @@ public class LoanListToLoanListResponseTransformer
 
     @Override
     public LoanListResponse apply(List<Loan> loans) {
-        LoanListResponse response = new LoanListResponse();
-        response.setLoanList(new ArrayList<>());
+        LoanListResponse response = new LoanListResponse(new ArrayList<>());
 
         loans.forEach(
                 loan -> {
                     Bank bank = bankRepository.findById(loan.getBankId());
-                    LoanView view = new LoanView();
-                    view.setAmount(loan.getLoanAmount());
-                    view.setBank(bank.getBank_name());
-                    view.setStudentId(loan.getStudent().getStudentId());
-                    view.setLoanId(loan.getId());
-                    view.setSchool(loan.getStudent().getStudent_school());
-                    view.setTuition(loan.getStudent().getStudent_tuition());
-                    view.setBankId(bank.getBankId());
-                    view.setStudentName(loan.getStudent().getStudent_name());
+                    LoanView view =
+                            new LoanView(
+                                    loan.getLoanAmount(),
+                                    loan.getStudent().getStudent_tuition(),
+                                    loan.getStudent().getStudentId(),
+                                    loan.getStudent().getStudent_name(),
+                                    loan.getStudent().getStudent_school(),
+                                    loan.getLoanInterest().toString(),
+                                    loan.getId(),
+                                    bank.getBank_name(),
+                                    loan.getBankId());
 
                     String interest = loan.getLoanInterest() * 100 + "%";
                     view.setInterest(interest);

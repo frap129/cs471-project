@@ -46,9 +46,9 @@ public class LoginSystem {
         }
         /* Found user but password doesn't match. Return relevant data but do not authenticate */
         if (!selectedUser.getPassword().equals(information.getPassword())) {
-            LoginResponse response = new LoginResponse();
-            response.setAuthenticated(false);
-            response.setRole(selectedUser.getRole());
+            LoginResponse response =
+                    new LoginResponse(true, selectedUser.getRole(), selectedUser.getId());
+
             return ResponseEntity.ok().body(response);
         }
         /* Found user and password matches, return all data */
@@ -71,17 +71,16 @@ public class LoginSystem {
                     Bank bank = bankResponse.get();
 
                     /* Fill out the Bank Information */
-                    BankInfo bankInfo = new BankInfo();
-                    bankInfo.setBankId(bank.getBankId());
-                    bankInfo.setBankName(bank.getBank_name());
+                    BankInfo bankInfo = new BankInfo(bank.getBankId(), bank.getBank_name());
 
                     /* Create and fill out a response */
-                    BankOfficerResponse response = new BankOfficerResponse();
-                    response.setUserId(selectedUser.getId());
-                    response.setAuthenticated(true);
-                    response.setRole(selectedUser.getRole());
-                    response.setName(officer.getOfficer_name());
-                    response.setBankInfo(bankInfo);
+                    BankOfficerResponse response =
+                            new BankOfficerResponse(
+                                    officer.getOfficer_name(),
+                                    bankInfo,
+                                    true,
+                                    selectedUser.getRole(),
+                                    selectedUser.getId());
 
                     return ResponseEntity.ok().body(response);
                 }
@@ -95,26 +94,27 @@ public class LoginSystem {
                     Student student = studentResponse.get();
 
                     /* Fill out the Student Information */
-                    StudentInfo studentInfo = new StudentInfo();
-                    studentInfo.setStudentId(student.getStudentId());
-                    studentInfo.setSchool(student.getStudent_school());
-                    studentInfo.setAddress(student.getStudent_address());
+                    StudentInfo studentInfo =
+                            new StudentInfo(
+                                    student.getStudentId(),
+                                    student.getStudent_address(),
+                                    student.getStudent_school());
 
                     /* Create and fill out a response */
-                    StudentResponse response = new StudentResponse();
-                    response.setName(student.getStudent_name());
-                    response.setRole(selectedUser.getRole());
-                    response.setAuthenticated(true);
-                    response.setStudentInfo(studentInfo);
+                    StudentResponse response =
+                            new StudentResponse(
+                                    student.getStudent_name(),
+                                    true,
+                                    selectedUser.getRole(),
+                                    selectedUser.getId(),
+                                    studentInfo);
 
                     return ResponseEntity.ok().body(response);
                 }
             case REGISTRAR:
                 {
-                    RegistrarResponse response = new RegistrarResponse();
-                    response.setAuthenticated(true);
-                    response.setRole(selectedUser.getRole());
-
+                    RegistrarResponse response =
+                            new RegistrarResponse(true, selectedUser.getRole(), selectedUser.getId());
                     return ResponseEntity.ok().body(response);
                 }
         }

@@ -71,13 +71,8 @@ public class LoanBuilder {
     }
 
     public Loan build() {
-        Loan loan = new Loan();
-        loan.setBankId(bankId);
-        loan.setStudent(student);
-        loan.setLoanAmount(loanAmount);
-        loan.setLoanStatus(loanStatus.toString());
-        loan.setLoanInterest(loanInterest);
-        loan.setLoanTerms(loanTerms);
+        Loan loan =
+                new Loan(bankId, student, loanAmount, loanInterest, loanTerms, loanStatus.toString());
         return loan;
     }
 }

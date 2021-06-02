@@ -5,6 +5,15 @@ public class ApproveResponse {
     private String result;
     private String error;
 
+    public ApproveResponse(String result, String error) {
+        this.result = result;
+        this.error = error;
+    }
+
+    public ApproveResponse(String result) {
+        this.result = result;
+    }
+
     public String getResult() {
         return result;
     }

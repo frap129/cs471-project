@@ -31,6 +31,21 @@ public class Loan {
     private String loanTerms;
     private String loanStatus;
 
+    public Loan(
+            int bankId,
+            Student student,
+            float loanAmount,
+            Float loanInterest,
+            String loanTerms,
+            String loanStatus) {
+        this.bankId = bankId;
+        this.student = student;
+        this.loanAmount = loanAmount;
+        this.loanInterest = loanInterest;
+        this.loanTerms = loanTerms;
+        this.loanStatus = loanStatus;
+    }
+
     public Integer getId() {
         return id;
     }

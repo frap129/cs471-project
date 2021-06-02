@@ -5,6 +5,11 @@ public class LoanInformation {
     int loanId;
     int bankerId;
 
+    public LoanInformation(int loanId, int bankerId) {
+        this.loanId = loanId;
+        this.bankerId = bankerId;
+    }
+
     public int getLoanId() {
         return loanId;
     }

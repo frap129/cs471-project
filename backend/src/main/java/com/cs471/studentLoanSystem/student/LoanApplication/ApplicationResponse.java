@@ -15,7 +15,6 @@ public class ApplicationResponse {
     }
 
     private Result result;
-
     private String error;
 
     public Result getResult() {
