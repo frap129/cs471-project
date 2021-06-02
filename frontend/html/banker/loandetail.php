@@ -10,7 +10,43 @@ use com\web\face\HtmlNode;
 use com\web\rest\RestTemplate;
 
 function handlePost() {
+    if (!isset($_GET["id"])) {
+        // Render step handles this
+        return;
+    }
 
+    $approval = False;
+    if (isset($_POST["approval"])) {
+        $approval = True;
+    }
+
+    $userId = $_SESSION[SessionUtil::USER_ID_PROPERTY];
+    $loanId = $_GET["id"];
+
+    $restTemplate = new RestTemplate();
+    $request["approved"] = $approval;
+    $request["loanId"] = $loanId;
+    $request["userId"] = $userId;
+
+    try {
+        $statusChangeResponse = $restTemplate->makeRequest("/approveLoan", $request);
+
+        if ($statusChangeResponse == null) {
+            ValidationUtil::validate("Failed to change loan status.");
+            return;
+        }
+
+        if (strcmp($statusChangeResponse["result"], "SUCCESS") == 0) {
+            ValidationUtil::messageUser("Successfully updated loan status.");
+            return;
+        }
+
+        ValidationUtil::validate($statusChangeResponse["error"]);
+    } catch (\Exception $exception) {
+        // Handles technical issue like service outage
+        ValidationUtil::validate("Failed to change loan status.");
+        return;
+    }
 }
 
 function render(HtmlDocument $page) {
@@ -209,7 +245,7 @@ $page = new HtmlDocument();
 PageUtil::addHeaderToHtmlDocument($page);
 PageUtil::addBannerAndNavControlsToHtmlDocument($page);
 
-if (isset($_POST["approval"]) && isset($_POST["denial"])) {
+if (isset($_POST["approval"]) || isset($_POST["denial"])) {
     handlePost();
 }
 
