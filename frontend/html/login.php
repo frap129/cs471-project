@@ -100,6 +100,10 @@ function handlePost() {
     $_SESSION[SessionUtil::ROLE_PROPERTY] = $response["role"];
     $_SESSION[SessionUtil::NAME_PROPERTY] = $response["name"];
 
+    if (isset($response["userId"]) && $response["userId"] != null) {
+        $_SESSION[SessionUtil::USER_ID_PROPERTY] = $response["userId"];
+    }
+
     if (($response["role"] == "BANKOFFICER" || $response["role"] == "LOANOFFICER") && isset($response["bankInfo"])) {
         $_SESSION[SessionUtil::INFO_PROPERTY] = $response["bankInfo"];
     } else if ($response["role"] == "STUDENT" && isset($response["studentInfo"])) {

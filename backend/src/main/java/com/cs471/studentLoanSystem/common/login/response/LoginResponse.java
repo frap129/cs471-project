@@ -4,6 +4,7 @@ package com.cs471.studentLoanSystem.common.login.response;
 public class LoginResponse {
     private boolean authenticated;
     private String role;
+    private int userId;
 
     public boolean isAuthenticated() {
         return authenticated;
@@ -19,5 +20,13 @@ public class LoginResponse {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

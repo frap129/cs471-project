@@ -11,6 +11,7 @@ public class LoanResponse {
     double loanAmount;
     double interest;
     String terms;
+    String status;
 
     public String getName() {
         return name;
@@ -82,5 +83,13 @@ public class LoanResponse {
 
     public void setTerms(String terms) {
         this.terms = terms;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

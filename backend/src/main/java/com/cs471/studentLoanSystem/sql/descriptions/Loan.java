@@ -13,8 +13,7 @@ public class Loan {
     public enum LoanStatus {
         PENDING,
         APPROVED,
-        DENIED,
-        PAID
+        DENIED
     }
 
     @Id
