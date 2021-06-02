@@ -72,7 +72,7 @@ public class LoginSystem {
 
                     /* Fill out the Bank Information */
                     BankInfo bankInfo = new BankInfo();
-                    bankInfo.setBankId(bank.getBank_id());
+                    bankInfo.setBankId(bank.getBankId());
                     bankInfo.setBankName(bank.getBank_name());
 
                     /* Create and fill out a response */
