@@ -2,12 +2,15 @@ package com.cs471.studentLoanSystem.common.login;
 
 @SuppressWarnings("unused")
 public class LoginInformation {
-
     private Integer id;
-
     private String username;
-
     private String password;
+
+    public LoginInformation(Integer id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
 
     public String getUsername() {
         return username;

@@ -6,6 +6,12 @@ public class LoanApproveInformation {
     private int loanId;
     private boolean approved;
 
+    public LoanApproveInformation(int userId, int loanId, boolean approved) {
+        this.userId = userId;
+        this.loanId = loanId;
+        this.approved = approved;
+    }
+
     public int getUserId() {
         return userId;
     }

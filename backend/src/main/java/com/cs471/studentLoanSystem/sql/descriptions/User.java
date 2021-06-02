@@ -17,6 +17,13 @@ public class User {
     private String role;
     private Integer person_id; // Integer instead of int because SQL describes this as nullable
 
+    public User(String username, String password, String role, Integer person_id) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.person_id = person_id;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -6,6 +6,10 @@ public class LoanListResponse {
 
     private List<LoanView> loanList;
 
+    public LoanListResponse(List<LoanView> loanList) {
+        this.loanList = loanList;
+    }
+
     public List<LoanView> getLoanList() {
         return loanList;
     }
