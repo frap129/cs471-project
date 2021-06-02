@@ -13,6 +13,7 @@ class SessionUtil {
     const ROLE_PROPERTY = "role";
     const INFO_PROPERTY = "userInfo";
     const NAME_PROPERTY = "name";
+    const USER_ID_PROPERTY = "userId";
 
     private const FORWARD_MAP = array(
         "BANKOFFICER" => "/banker/",

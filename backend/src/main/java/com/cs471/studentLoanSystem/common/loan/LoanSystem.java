@@ -4,9 +4,11 @@ import com.cs471.studentLoanSystem.common.UserRole;
 import com.cs471.studentLoanSystem.common.loan.response.ApproveResponse;
 import com.cs471.studentLoanSystem.common.loan.response.LoanResponse;
 import com.cs471.studentLoanSystem.sql.BankOfficerRepository;
+import com.cs471.studentLoanSystem.sql.BankRepository;
 import com.cs471.studentLoanSystem.sql.LoanRepository;
 import com.cs471.studentLoanSystem.sql.StudentRepository;
 import com.cs471.studentLoanSystem.sql.UserRepository;
+import com.cs471.studentLoanSystem.sql.descriptions.Bank;
 import com.cs471.studentLoanSystem.sql.descriptions.BankOfficer;
 import com.cs471.studentLoanSystem.sql.descriptions.Loan;
 import com.cs471.studentLoanSystem.sql.descriptions.Student;
@@ -27,6 +29,7 @@ public class LoanSystem {
     @Autowired private LoanRepository sqlLoanRepository;
     @Autowired private UserRepository sqlUserRepository;
     @Autowired private StudentRepository sqlStudentRepository;
+    @Autowired private BankRepository sqlBankRepository;
     @Autowired private BankOfficerRepository sqlBankOfficerRepository;
 
     @PostMapping("/getLoan")
@@ -48,7 +51,8 @@ public class LoanSystem {
         }
         Student student = studentOptional.get();
 
-        if (loan.getBankId() != information.getBankerId()) {
+        Bank bank = sqlBankRepository.findById(loan.getBankId());
+        if (bank.getBankId() != information.getBankerId()) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN)
                     .header("error", "Banker ID doesn't match loan's Bank ID")
                     .build();
