@@ -129,6 +129,17 @@ function render(HtmlDocument $page) {
     $schoolInput->addAttribute("name", "studentSchool");
     $schoolInput->addAttribute("value", "$school");
 
+    $tuitionLabel = new HtmlNode($studentDetailOrganizer, "label");
+    $tuitionLabel->addAttribute("for", "tuition");
+    $tuitionLabel->addAttribute("style", "display: flex;");
+    $tuitionLabel->setNestedText("Tuition");
+    $tuitionInput = new HtmlNode($studentDetailOrganizer, "input");
+    $tuitionInput->addAttribute("style", "display: flex;");
+    $tuitionInput->addAttribute("readonly", "readonly");
+    $tuitionInput->addAttribute("id", "tuition");
+    $tuitionInput->addAttribute("name", "tuition");
+    $tuitionInput->addAttribute("value", "$tuition");
+
     $familyInputLabel = new HtmlNode($studentDetailOrganizer, "label");
     $familyInputLabel->addAttribute("for", "familyIncome");
     $familyInputLabel->addAttribute("style", "display: flex;");
