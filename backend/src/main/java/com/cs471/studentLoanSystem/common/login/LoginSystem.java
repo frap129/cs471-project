@@ -77,6 +77,7 @@ public class LoginSystem {
 
                     /* Create and fill out a response */
                     BankOfficerResponse response = new BankOfficerResponse();
+                    response.setUserId(selectedUser.getId());
                     response.setAuthenticated(true);
                     response.setRole(selectedUser.getRole());
                     response.setName(officer.getOfficer_name());
