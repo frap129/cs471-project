@@ -26,6 +26,8 @@ p{
 	max-height: 248px; 
 	overflow: hidden; 
 	border-radius: 4px;
+	position: relative;
+	text-align: center; 
 }
 div{
 	position: center;
@@ -57,7 +59,8 @@ li a:hover:not(.active) {
   background-color: #4CAF50;
 }
 .login {
-    background-color: #12226E;
+    /*background-color: #12226E;*/
+	background-color: #333;
 }
 .logout {
     background-color: #A1180E;
@@ -111,6 +114,22 @@ legend {
    /*font-weight: bold;*/
    font-size: 20px;
    font-family: "FreeMono";
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 95px;
+  font-weight: bold;
+  font-family: "FreeMono";
+  white-space: nowrap;
+  text-shadow: -3px 3px 0 #000, 3px 3px 0 #000,3px -3px 0 #000;-3px -3px 0 #000;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 /*
 .subbtn {

@@ -20,7 +20,8 @@ function doRender() {
     PageUtil::addBannerAndNavControlsToHtmlDocument($page);
 
     ValidationUtil::addMessagesToHtmlNode($page->getBody());
-
+	(new HtmlNode($page->getHead(), "title"))->setNestedText("\$Post-Ya-Loan - Login");
+	
     $mainContent = new HtmlNode($page->getBody(), "center");
     $mainContent->addChild(new HtmlNode(null, "br"));
     $loginContainer = new HtmlNode($mainContent, "div");

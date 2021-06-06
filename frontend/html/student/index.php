@@ -12,6 +12,7 @@ SessionUtil::commonPageLoadSessionStep(array("STUDENT"));
 $page = new HtmlDocument();
 PageUtil::addHeaderToHtmlDocument($page);
 PageUtil::addBannerAndNavControlsToHtmlDocument($page);
+(new HtmlNode($page->getHead(), "title"))->setNestedText("\$Post-Ya-Loan - Student Dashboard");
 
 // TODO Ian Make me beautiful!
 $center = new HtmlNode($page->getBody(), "center");

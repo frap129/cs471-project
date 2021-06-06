@@ -18,11 +18,11 @@ class PageUtil {
      * @param HtmlDocument $page The page to add it to
      */
     public static function addHeaderToHtmlDocument(HtmlDocument $page) {
-        (new HtmlNode($page->getHead(), "title"))->setNestedText("Loan Dashboard");
+        /*(new HtmlNode($page->getHead(), "title"))->setNestedText("Loan Dashboard");*/
         $iconNode = new HtmlNode($page->getHead(), "link");
         $iconNode->addAttribute("rel", "icon");
         $iconNode->addAttribute("type", "image/png");
-        $iconNode->addAttribute("href", "/css/images/favicon.png");
+        $iconNode->addAttribute("href", "/css/images/favicon.png?v=" . time());
 
         $styleNode = new HtmlNode($page->getHead(), "link");
         $styleNode->addAttribute("rel", "stylesheet");
@@ -43,16 +43,17 @@ class PageUtil {
         $homeButton = new HtmlNode($buttonList, "li");
         $homeLink = new HtmlNode($homeButton, "a");
         $homeLink->addAttribute("href", "/");
-        $homeLink->addAttribute("class", "active");
+       /* $homeLink->addAttribute("class", "active");*/
         $homeLink->setNestedText("Home");
 
         $sessionControlScript = "/login.php";
-        $sessionControlClass = "login";
+        /*$sessionControlClass = "login";*/
         $sessionControlTag = "Login";
+		$sessionControlClass = "active";
         if ($authenticated) {
             $sessionControlScript = "/logout.php";
             $sessionControlClass = "logout";
-            $sessionControlTag = "Logout";
+            $sessionControlTag = "active";
         }
 
         $sessionControlButton = new HtmlNode($buttonList, "li");
@@ -74,5 +75,8 @@ class PageUtil {
         $imageNode = new HtmlNode($bannerNode, "img");
         $imageNode->addAttribute("src", "/css/images/banner.jpg");
         $imageNode->addAttribute("class", "responsive");
+		$websiteName = new HtmlNode($bannerNode,"div");
+		$websiteName->addAttribute("class","centered");
+		$websiteName->setNestedText("\$Post-Ya-Loan");
     }
 }
