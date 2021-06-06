@@ -72,6 +72,7 @@ function doRender() {
     $submissionInput->addAttribute("name", "signIn");
     $submissionInput->addAttribute("value", "Sign In");
     $submissionInput->addAttribute("class", "btn");
+	
 
     $page->output();
 }

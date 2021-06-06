@@ -23,7 +23,7 @@ SessionUtil::commonPageLoadSessionStep(null);
 </div>
 <div class="side-crop">
     <img src="css/images/banner.jpg" class="responsive">
-	<div class="centered">$Post-Ya-Loan</div>
+	<div class="titleCentered">$Post-Ya-Loan</div>
 </div>
 <center>
     <div style="width:85%">

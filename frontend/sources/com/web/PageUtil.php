@@ -76,7 +76,7 @@ class PageUtil {
         $imageNode->addAttribute("src", "/css/images/banner.jpg");
         $imageNode->addAttribute("class", "responsive");
 		$websiteName = new HtmlNode($bannerNode,"div");
-		$websiteName->addAttribute("class","centered");
+		$websiteName->addAttribute("class","titleCentered");
 		$websiteName->setNestedText("\$Post-Ya-Loan");
     }
 }
