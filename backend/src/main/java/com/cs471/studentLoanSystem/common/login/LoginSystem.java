@@ -47,7 +47,7 @@ public class LoginSystem {
         /* Found user but password doesn't match. Return relevant data but do not authenticate */
         if (!selectedUser.getPassword().equals(information.getPassword())) {
             LoginResponse response =
-                    new LoginResponse(false, selectedUser.getRole(), selectedUser.getId());
+                    new LoginResponse(true, selectedUser.getRole(), selectedUser.getId());
 
             return ResponseEntity.ok().body(response);
         }
