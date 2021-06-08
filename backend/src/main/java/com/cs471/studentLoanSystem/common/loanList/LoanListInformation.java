@@ -6,12 +6,6 @@ public class LoanListInformation {
     private Integer bankId;
     private String schoolName;
 
-    public LoanListInformation(Integer studentId, Integer bankId, String schoolName) {
-        this.studentId = studentId;
-        this.bankId = bankId;
-        this.schoolName = schoolName;
-    }
-
     public Integer getStudentId() {
         return studentId;
     }

@@ -12,27 +12,6 @@ public class LoanView {
     private String bank;
     private int bankId;
 
-    public LoanView(
-            float amount,
-            Double tuition,
-            Integer studentId,
-            String studentName,
-            String school,
-            String interest,
-            Integer loanId,
-            String bank,
-            int bankId) {
-        this.amount = amount;
-        this.tuition = tuition;
-        this.studentId = studentId;
-        this.studentName = studentName;
-        this.school = school;
-        this.interest = interest;
-        this.loanId = loanId;
-        this.bank = bank;
-        this.bankId = bankId;
-    }
-
     public float getAmount() {
         return amount;
     }

@@ -6,12 +6,6 @@ public class LoginResponse {
     private String role;
     private int userId;
 
-    public LoginResponse(boolean authenticated, String role, int userId) {
-        this.authenticated = authenticated;
-        this.role = role;
-        this.userId = userId;
-    }
-
     public boolean isAuthenticated() {
         return authenticated;
     }

@@ -15,11 +15,6 @@ public class BankOfficer {
     private String officer_name;
     private Integer bank_id;
 
-    public BankOfficer(String officer_name, Integer bank_id) {
-        this.officer_name = officer_name;
-        this.bank_id = bank_id;
-    }
-
     public Integer getId() {
         return id;
     }

@@ -20,23 +20,6 @@ public class Student {
     private Double student_tuition;
     private Integer studentId;
 
-    public Student(
-            String student_name,
-            String student_address,
-            String student_school,
-            Integer student_credit_score,
-            Double student_family_income,
-            Double student_tuition,
-            Integer studentId) {
-        this.student_name = student_name;
-        this.student_address = student_address;
-        this.student_school = student_school;
-        this.student_credit_score = student_credit_score;
-        this.student_family_income = student_family_income;
-        this.student_tuition = student_tuition;
-        this.studentId = studentId;
-    }
-
     public Integer getId() {
         return id;
     }

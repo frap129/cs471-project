@@ -13,29 +13,6 @@ public class LoanResponse {
     String terms;
     String status;
 
-    public LoanResponse(
-            String name,
-            String address,
-            String school,
-            double tuition,
-            double familyIncome,
-            int creditScore,
-            double loanAmount,
-            double interest,
-            String terms,
-            String status) {
-        this.name = name;
-        this.address = address;
-        this.school = school;
-        this.tuition = tuition;
-        this.familyIncome = familyIncome;
-        this.creditScore = creditScore;
-        this.loanAmount = loanAmount;
-        this.interest = interest;
-        this.terms = terms;
-        this.status = status;
-    }
-
     public String getName() {
         return name;
     }
