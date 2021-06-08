@@ -61,6 +61,8 @@ public class LoanListSystem {
             }
         } else if (bankPid != null) {
             loans = Arrays.asList(loanRepo.findAllByBankId(bankPid));
+        } else if (info.getLoanStatus() != null) {
+            loans = Arrays.asList(loanRepo.findAllByLoanStatus(info.getLoanStatus()));
         } else {
             loans = new ArrayList<>();
             for (Loan loan : loanRepo.findAll()) {
