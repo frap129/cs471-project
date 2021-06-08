@@ -58,18 +58,17 @@ public class LoanSystem {
                     .build();
         }
 
-        LoanResponse ret =
-                new LoanResponse(
-                        student.getStudent_name(),
-                        student.getStudent_address(),
-                        student.getStudent_school(),
-                        student.getStudent_tuition(),
-                        student.getStudent_family_income(),
-                        student.getStudent_credit_score(),
-                        loan.getLoanAmount(),
-                        loan.getLoanInterest(),
-                        loan.getLoanTerms(),
-                        loan.getLoanStatus());
+        LoanResponse ret = new LoanResponse();
+        ret.setName(student.getStudent_name());
+        ret.setAddress(student.getStudent_address());
+        ret.setSchool(student.getStudent_school());
+        ret.setTuition(student.getStudent_tuition());
+        ret.setFamilyIncome(student.getStudent_family_income());
+        ret.setCreditScore(student.getStudent_credit_score());
+        ret.setLoanAmount(loan.getLoanAmount());
+        ret.setInterest(loan.getLoanInterest());
+        ret.setTerms(loan.getLoanTerms());
+        ret.setStatus(loan.getLoanStatus());
 
         return ResponseEntity.ok().body(ret);
     }
@@ -83,7 +82,9 @@ public class LoanSystem {
         }
         Loan loan = loanOptional.get();
         if (!loan.getLoanStatus().equals(Loan.LoanStatus.PENDING.toString())) {
-            ApproveResponse ret = new ApproveResponse("FAILURE", "Loan is not pending approval");
+            ApproveResponse ret = new ApproveResponse();
+            ret.setResult("FAILURE");
+            ret.setError("Loan is not pending approval");
             return ResponseEntity.ok().body(ret);
         }
 
@@ -93,7 +94,9 @@ public class LoanSystem {
         }
         User user = userOptional.get();
         if (!user.getRole().equals(UserRole.LOANOFFICER.toString())) {
-            ApproveResponse ret = new ApproveResponse("Failure", "User is not a LoanOfficer");
+            ApproveResponse ret = new ApproveResponse();
+            ret.setResult("FAILURE");
+            ret.setError("User is not a LoanOfficer");
             return ResponseEntity.ok().body(ret);
         }
 
@@ -105,7 +108,9 @@ public class LoanSystem {
         BankOfficer bankOfficer = bankOfficerOptional.get();
 
         if (loan.getBankId() != bankOfficer.getBank_id()) {
-            ApproveResponse ret = new ApproveResponse("FAILURE", "Banker ID does not match");
+            ApproveResponse ret = new ApproveResponse();
+            ret.setResult("FAILURE");
+            ret.setError("Banker ID does not match");
             return ResponseEntity.ok().body(ret);
         }
 
@@ -115,7 +120,8 @@ public class LoanSystem {
                         : Loan.LoanStatus.DENIED.toString());
         sqlLoanRepository.save(loan);
 
-        ApproveResponse ret = new ApproveResponse("SUCCESS");
+        ApproveResponse ret = new ApproveResponse();
+        ret.setResult("SUCCESS");
 
         return ResponseEntity.ok().body(ret);
     }

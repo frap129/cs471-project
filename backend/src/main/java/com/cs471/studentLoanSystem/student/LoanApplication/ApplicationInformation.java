@@ -2,12 +2,10 @@ package com.cs471.studentLoanSystem.student.LoanApplication;
 
 public class ApplicationInformation {
     private Integer templateId;
-    private Integer studentId;
-    private Float amount;
 
-    public ApplicationInformation(Integer templateId) {
-        this.templateId = templateId;
-    }
+    private Integer studentId;
+
+    private Float amount;
 
     public Integer getTemplateId() {
         return templateId;

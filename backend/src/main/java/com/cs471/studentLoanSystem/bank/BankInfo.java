@@ -5,11 +5,6 @@ public class BankInfo {
     private int bankId;
     private String bankName;
 
-    public BankInfo(int bankId, String bankName) {
-        this.bankId = bankId;
-        this.bankName = bankName;
-    }
-
     public int getBankId() {
         return bankId;
     }
