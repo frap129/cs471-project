@@ -6,9 +6,10 @@ public class MonthlyPaymentCalc {
     public static double monthlyPaymentCalc(double loanAmount, int termInYears, double interestRate) {
         double monthlyRate = interestRate / 12.0;
         int termInMonths = termInYears * 12;
-        return
+        double monthlyPayment =
                 (loanAmount * monthlyRate) /
                         (1 - Math.pow(1 + monthlyRate, -termInMonths));
+        return monthlyPayment;
 
     }
 }
