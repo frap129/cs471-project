@@ -72,16 +72,13 @@ class HtmlNode {
             $counter = $counter + 1;
         }
 
-        if (strlen($this->nestedText) == 0 && count($this->children) == 0 && strcmp($this->name, "script") != 0) {
-            $output .= "/>\n";
-        } else {
-            $output .= ">$this->nestedText \n";
-            foreach ($this->children as $child) {
-                $output .= $child->stringify();
-            }
-            $output .= "</$this->name>\n";
+        
+        $output .= ">$this->nestedText";
+        foreach ($this->children as $child) {
+            $output .= "\n" . $child->stringify();
         }
-
+        
+        $output .= "</$this->name>\n";
         return $output;
     }
 

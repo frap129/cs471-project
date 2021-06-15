@@ -3,13 +3,74 @@
 	src:url("FreeMono/FreeMono.eot?") format("eot"),url("FreeMono/FreeMono.woff") format("woff"),url("FreeMono/FreeMono.ttf") format("truetype"),url("FreeMono/FreeMono.svg#FreeMono") format("svg");
 	font-weight:normal;
 	font-style:normal;
+}
+.col {
+  overflow: hidden;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  $speed: 0.275s;
+  transition: all $speed ease-in-out, visibility 0s $speed;
+  visibility: hidden;
+  will-change: transform;
+  transform: translateY(100%);
+}
+.row { 
+  display: flex;
+}
+.col:hover .slide { 
+	transform: translateY(-100%); 
 	}
+  /*.slide { transform: translateX(100%); }
+  & .col:hover ~ .col .slide { transform: translateX(-100%); }
+  .col:hover .slide {
+    transform: none;
+    visibility: visible;
+    transition-delay: 0s;
+  }*/
+}
 h1{
 	font-family: "Chinyen";
 	text-align:center;
 	position: center;
 }
-
+.container {
+  margin: 0 auto;
+  padding: 2rem;
+  max-width: 1200px;
+}
+.col {
+  color: #ffff;
+  flex: 1 1 auto;
+  min-height: 260px;
+  position: relative;
+}
+h2 { 
+    font-weight: 600;
+    font-size: (14 * 1.33333) / 14 * 1rem;
+	font-family: "FreeMono";
+    line-height: 1.25;
+    margin: 0;
+    position: absolute;
+    bottom: 1.5rem; right: 1.5rem;
+    z-index: 0;
+  }
+ .photo-container::before {
+    background: linear-gradient(transparent,rgba(67, 17, 51, 0.5),rgba(0, 3, 32,1));
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+  }
+.photo-container {
+  background: #0f0523 50% 50% / cover;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  transition: 1s;
+  transform-origin: bottom right;
+}
 p{
 	font-family: "FreeMono";
 	font-weight: bold;
@@ -63,15 +124,16 @@ li a:hover:not(.active) {
 	background-color: #333;
 }
 .logout {
-    background-color: #A1180E;
+    background-color: #333;
 }
 .btn {
   -webkit-border-radius: 3;
   -moz-border-radius: 3;
   border-radius: 3px;
-  height: 32px;
+  height: calc(42px+0.8vw);
+  /*width:calc(168px + 0.8vw);*/
   color: white;
-  font-size: 14px;
+  font-size: calc(14px+0.8vw);
   background: #ff1c01;
   padding: 5px 15px 5px 15px;
   text-decoration: none;
@@ -108,11 +170,12 @@ legend {
    background-color: #616161;
    color: white;
    margin: 0 auto;
-   width: 100px;
+   /*min-width: 100px;*/
+   width:calc(100px + 2.5vw);
    padding: 0.25em;
    text-align: center;
    /*font-weight: bold;*/
-   font-size: 20px;
+   font-size: calc(20px + 1.5vw);
    font-family: "FreeMono";
 }
 .titleCentered {
@@ -130,6 +193,14 @@ legend {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
+}
+label{
+	font-size: calc(14px + 0.8vw);
+}
+input{
+	font-size: calc(14px + 0.8vw);
+	max-width: 75%;
+	min-width: 200px;
 }
 /*
 .subbtn {

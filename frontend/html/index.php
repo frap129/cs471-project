@@ -28,9 +28,14 @@ SessionUtil::commonPageLoadSessionStep(null);
 <center>
     <div style="width:85%">
         <p>Welcome to $Post-Ya-Loan the Loan Application System!</p>
-        <p>Apply for a loan from one of our ## of banks! We approve ##% of loans!![]</p>
+        <p id="ranNum"></p>
 		<p>Click "Login" to get started!</p>
-        <div></div>
+        <script>
+			document.getElementById("ranNum").innerHTML = "Apply for a loan from one of our 2 partnered banks! We approve ";
+			document.getElementById("ranNum").innerHTML += Math.round((Math.random())*100);
+			document.getElementById("ranNum").innerHTML += "% of loans!!"
+		</script>
+		<div></div>
     </div>
 </center>
 </body>

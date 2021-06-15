@@ -40,7 +40,7 @@ class HtmlDocument {
          */
         //echo htmlentities($this->head->stringify(), ENT_QUOTES | ENT_HTML5, 'UTF-8');
         //echo htmlentities($this->body->stringify(), ENT_QUOTES | ENT_HTML5, 'UTF-8');
-
+		//var_dump($this->htmlParent);
         echo $this->htmlParent->stringify();
 
         $this->outputComplete = true;

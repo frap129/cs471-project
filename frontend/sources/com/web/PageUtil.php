@@ -52,8 +52,9 @@ class PageUtil {
 		$sessionControlClass = "active";
         if ($authenticated) {
             $sessionControlScript = "/logout.php";
+			$homeLink->addAttribute("class", "active");
             $sessionControlClass = "logout";
-            $sessionControlTag = "active";
+            $sessionControlTag = "Logout";
         }
 
         $sessionControlButton = new HtmlNode($buttonList, "li");
@@ -65,9 +66,10 @@ class PageUtil {
         $sessionControlLink->setNestedText($sessionControlTag);
 
         if ($authenticated) {
-            $currentUserLabel = new HtmlNode($buttonList, "li");
-            $currentUserLabel->addAttribute("style", "float:right; color:#F0FFFF");
+			$currentUserLabel = new HtmlNode($buttonList, "li");
+            $currentUserLabel->addAttribute("style", "margin-top:12px;margin-right:20px;float:right; color:#FFFFFF;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;");
             $currentUserLabel->setNestedText("Welcome, " . $_SESSION[SessionUtil::NAME_PROPERTY] . ".");
+			
         }
 
         $bannerNode = new HtmlNode($page->getBody(), "div");

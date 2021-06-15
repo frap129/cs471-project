@@ -25,7 +25,8 @@ function doRender() {
     $mainContent = new HtmlNode($page->getBody(), "center");
     $mainContent->addChild(new HtmlNode(null, "br"));
     $loginContainer = new HtmlNode($mainContent, "div");
-    $loginContainer->addAttribute("style", "width:238px");
+    $loginContainer->addAttribute("style", "width:40%");
+	$loginContainer->addAttribute("style", "min-width:238px");
     $loginForm = new HtmlNode($loginContainer, "form");
 
     $loginForm->addAttribute("id", "loginform");
