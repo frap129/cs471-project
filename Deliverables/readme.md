@@ -9,11 +9,11 @@ Check box marks completed.
  - [x] Architectural Pattern - `Architectural Pattern.pdf`
  - [x] Class List - `Classlist.pdf`
  - [x] CRC Cards - `Backend CRC Cards.pdf` `Frontend CRC Cards.pdf`
- - [x] Class Diagrams - `Class Diagrams UML.pdf`
+ - [x] Class Diagrams - `Class Diagrams UML.png`
  - [x] Sequence Charts - `Sequence Diagram.pdf`
- - [ ] State Diagrams
- - [ ] Component Definition and Allocation
- - [ ] SCRUM Sprints Lists of User Stories
+ - [x] State Diagrams - `States.png`
+ - [x] Component Definition and Allocation - `Component Definitions.pdf`
+ - [x] SCRUM Sprints Lists of User Stories - `List of Completed Works.pdf`
  - [x] SCRUM Project Burndown Chart - `Sprint Velocity and Burndown Charts.xlsx`
  - [x] SCRUM Project Velocity Chart - `Sprint Velocity and Burndown Charts.xlsx`
  - [ ] Test Cases and Test Outputs
