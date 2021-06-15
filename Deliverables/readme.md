@@ -10,7 +10,7 @@ Check box marks completed.
  - [x] Class List - `Classlist.pdf`
  - [x] CRC Cards - `Backend CRC Cards.pdf` `Frontend CRC Cards.pdf`
  - [x] Class Diagrams - `Class Diagrams UML.pdf`
- - [ ] Sequence Charts
+ - [x] Sequence Charts - `Sequence Diagram.pdf`
  - [ ] State Diagrams
  - [ ] Component Definition and Allocation
  - [ ] SCRUM Sprints Lists of User Stories
