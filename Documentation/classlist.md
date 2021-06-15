@@ -14,8 +14,10 @@
  * Registrar Portal (registrar/index.php)
  * Student (student/index.php)
  * Loan Application (student/apply.php)
- * Registar View Loan Page
- * Banker View Loan Page
+ * Student Loan Offers Page (student/offers.php)
+ * Registar View Loan Page (registar/viewloans.php)
+ * Banker View Loan Page (banker/loandetail.php)
+ * Banker View Loan Details Page (banker/viewloans.php)
  * Page
 
 ### Stereotype - Business
@@ -26,15 +28,26 @@
  * Student Login Response
  * Registrar Login Response
  * Loan Officer Response
- * User Repository
  * Login System
  * Loan Application Request
  * Loan Application Response
  * Loan Application System
  * Loan Application Template
- * Loan Repository
- * Loan
+ * Loan Detail Retrieval Request
+ * Loan Detail Retrieval Response
+ * Loan Detail Retrieval System
+ * Loan List System
+ * Loan List Request
+ * Loan List Response
  * Loan Filter
+ * Loan Review Request
+ * Loan Review Response
+ * Loan Review System
+ * User Repository
+ * Banker Repository
+ * Loan Repository
+ * Student Repository
+ * Loan
 
 ### Stereotype - Report
 
