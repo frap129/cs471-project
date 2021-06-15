@@ -4,7 +4,7 @@ List of deliverables and where to find them.
 
 Check box marks completed.
 
--  [x] User Stories - `User Stories.pdf`
+ - [x] User Stories - `User Stories.pdf`
  - [x] Achitectural Analysis `Architecture and Analysis.pdf`
  - [x] Architectural Pattern - `Architectural Pattern.pdf`
  - [x] Class List - `Classlist.pdf`
