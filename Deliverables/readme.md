@@ -16,7 +16,7 @@ Check box marks completed.
  - [x] SCRUM Sprints Lists of User Stories - `List of Completed Works.pdf`
  - [x] SCRUM Project Burndown Chart - `Sprint Velocity and Burndown Charts.pdf`
  - [x] SCRUM Project Velocity Chart - `Sprint Velocity and Burndown Charts.pdf`
- - [ ] Test Cases and Test Outputs
+ - [X] Test Cases and Test Outputs
  - [x] SCRUM Final List of Work Completed - `List of Completed Works.pdf` (Using Github Issues, red closed means it was finished, green open means it was not completed).
  - [x] Code Written - `Codebase 6-15 Snapshot.zip`
 
