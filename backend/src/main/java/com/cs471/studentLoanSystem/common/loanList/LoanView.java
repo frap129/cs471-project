@@ -11,6 +11,7 @@ public class LoanView {
     private Integer loanId;
     private String bank;
     private int bankId;
+    private String loanStatus;
 
     public float getAmount() {
         return amount;
@@ -82,5 +83,13 @@ public class LoanView {
 
     public void setStudentName(String studentName) {
         this.studentName = studentName;
+    }
+
+    public String getLoanStatus() {
+        return loanStatus;
+    }
+
+    public void setLoanStatus(String loanStatus) {
+        this.loanStatus = loanStatus;
     }
 }

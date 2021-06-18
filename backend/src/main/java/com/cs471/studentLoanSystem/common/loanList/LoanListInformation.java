@@ -5,6 +5,7 @@ public class LoanListInformation {
     private Integer studentId;
     private Integer bankId;
     private String schoolName;
+    private String loanStatus;
 
     public Integer getStudentId() {
         return studentId;
@@ -28,5 +29,13 @@ public class LoanListInformation {
 
     public void setSchoolName(String schoolName) {
         this.schoolName = schoolName;
+    }
+
+    public String getLoanStatus() {
+        return loanStatus;
+    }
+
+    public void setLoanStatus(String loanStatus) {
+        this.loanStatus = loanStatus;
     }
 }

@@ -31,6 +31,7 @@ public class LoanListToLoanListResponseTransformer
                     view.setTuition(loan.getStudent().getStudent_tuition());
                     view.setBankId(bank.getBankId());
                     view.setStudentName(loan.getStudent().getStudent_name());
+                    view.setLoanStatus(loan.getLoanStatus());
 
                     String interest = loan.getLoanInterest() * 100 + "%";
                     view.setInterest(interest);

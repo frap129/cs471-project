@@ -33,6 +33,10 @@ public class LoanListSystem {
         return p -> p.getBankId() != id;
     }
 
+    public static Predicate<Loan> wrongStatus(String status) {
+        return p -> !p.getLoanStatus().equals(status);
+    }
+
     @PostMapping("/loan-list")
     public ResponseEntity<LoanListResponse> loanList(
             @RequestBody LoanListInformation info, @NotNull Model model) {
@@ -53,14 +57,25 @@ public class LoanListSystem {
             if (info.getStudentId() != null) {
                 loans.removeIf(wrongStudentId(info.getStudentId()));
             }
+            if (info.getLoanStatus() != null) {
+                loans.removeIf(wrongStatus(info.getLoanStatus()));
+            }
         } else if (info.getStudentId() != null) {
             Student student = studentRepository.findByStudentId(info.getStudentId());
             loans = new ArrayList<>(Arrays.asList(loanRepo.findAllByStudent(student)));
             if (bankPid != null) {
                 loans.removeIf(wrongBankId(bankPid));
             }
+            if (info.getLoanStatus() != null) {
+                loans.removeIf(wrongStatus(info.getLoanStatus()));
+            }
         } else if (bankPid != null) {
             loans = Arrays.asList(loanRepo.findAllByBankId(bankPid));
+            if (info.getLoanStatus() != null) {
+                loans.removeIf(wrongStatus(info.getLoanStatus()));
+            }
+        } else if (info.getLoanStatus() != null) {
+            loans = Arrays.asList(loanRepo.findAllByLoanStatus(info.getLoanStatus()));
         } else {
             loans = new ArrayList<>();
             for (Loan loan : loanRepo.findAll()) {
